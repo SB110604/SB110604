@@ -1,5 +1,5 @@
 # 💫 About Me:
-🔭Final-year CSE student | AI, ML & Data Science<br>Exploring Cloud technologies and building real-world projects<br>Final-year project: AI-driven industrial safety system
+🎓 Computer Science student<br>🤖 AI & ML | 📊 Data Science | ☁️ Cloud<br>🐍 Python • 👁️ Computer Vision<br>🛠️ Final-year AI industrial safety project
 
 
 ## 🌐 Socials:
