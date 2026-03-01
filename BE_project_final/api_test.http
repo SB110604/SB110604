@@ -1,0 +1,108 @@
+# Industrial Safety Monitoring System — API Test File
+# =====================================================
+# Install extension: "REST Client" (humao.rest-client)
+# Click "Send Request" above any request to run it.
+# Set @token after login (copy from the login response).
+
+@base = http://localhost:8000/api/v1
+@token = PASTE_YOUR_JWT_TOKEN_HERE
+
+### ── 1. Health check ────────────────────────────────────────────────────────
+GET http://localhost:8000/health
+
+### ── 2. Register a new user ─────────────────────────────────────────────────
+POST {{base}}/auth/register
+Content-Type: application/json
+
+{
+  "username": "sahil",
+  "email": "sahilbodke51@gmail.com",
+  "password": "secret123",
+  "full_name": "Sahil Bodke",
+  "phone_number": "+919322511660"
+}
+
+### ── 3. Login (copy access_token → paste into @token above) ─────────────────
+# @name login
+POST {{base}}/auth/login
+Content-Type: application/x-www-form-urlencoded
+
+username=sahil&password=secret123
+
+### ── 4. Get current user (requires token) ───────────────────────────────────
+GET {{base}}/auth/me
+Authorization: Bearer {{token}}
+
+### ── 5. Create a monitoring zone ────────────────────────────────────────────
+POST {{base}}/sensors/zones
+Content-Type: application/json
+
+{
+  "name": "Boiler Room",
+  "description": "High-temperature industrial boiler area",
+  "location": "Building A, Floor 1"
+}
+
+### ── 6. Create a temperature sensor ─────────────────────────────────────────
+POST {{base}}/sensors/
+Content-Type: application/json
+
+{
+  "name": "Boiler Temp Sensor",
+  "sensor_type": "TEMPERATURE",
+  "unit": "°C",
+  "min_threshold": 10.0,
+  "max_threshold": 80.0,
+  "zone_id": 1
+}
+
+### ── 7. Post a NORMAL reading (no alert) ────────────────────────────────────
+POST {{base}}/sensors/readings
+Content-Type: application/json
+
+{
+  "sensor_id": 1,
+  "value": 45.0
+}
+
+### ── 8. Post a CRITICAL reading → triggers AI + SMS to +919322511660 ─────────
+POST {{base}}/sensors/readings
+Content-Type: application/json
+
+{
+  "sensor_id": 1,
+  "value": 999.0
+}
+
+### ── 9. List all alerts ──────────────────────────────────────────────────────
+GET {{base}}/alerts/
+
+### ── 10. Get latest sensor readings ─────────────────────────────────────────
+GET {{base}}/sensors/readings/1
+
+### ── 11. Run AI anomaly prediction (no auth needed) ─────────────────────────
+POST {{base}}/ai/predict
+Content-Type: application/json
+
+{
+  "value": 150.0,
+  "sensor_type": "TEMPERATURE"
+}
+
+### ── 12. View SMS logs (requires token) ─────────────────────────────────────
+GET {{base}}/alerts/sms/logs
+Authorization: Bearer {{token}}
+
+### ── 13. Send a manual SMS (requires token) ─────────────────────────────────
+POST {{base}}/alerts/sms/send
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "message": "🚨 Test alert from Industrial Safety System",
+  "to_number": "+919322511660"
+}
+
+### ── 14. Acknowledge an alert (requires token) ──────────────────────────────
+PATCH {{base}}/alerts/1/acknowledge
+Authorization: Bearer {{token}}

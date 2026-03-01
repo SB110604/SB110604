@@ -1,0 +1,27 @@
+{
+  "recommendations": [
+    // ── Core Python ────────────────────────────────────────────────────────
+    "ms-python.python",           // Python language support
+    "ms-python.pylance",          // Fast type-checking & IntelliSense
+    "ms-python.debugpy",          // Debugger (F5 support)
+    "ms-python.autopep8",         // Auto-format on save
+
+    // ── AI Coding Assistant ────────────────────────────────────────────────
+    "Blackboxapp.blackbox",       // Blackbox AI — autocomplete & chat
+
+    // ── Database ───────────────────────────────────────────────────────────
+    "mtxr.sqltools",              // SQL query runner in VS Code
+    "mtxr.sqltools-driver-mysql", // MySQL driver for SQLTools
+
+    // ── API Testing ────────────────────────────────────────────────────────
+    "humao.rest-client",          // Send HTTP requests from .http files
+
+    // ── Environment & config ───────────────────────────────────────────────
+    "mikestead.dotenv",           // .env syntax highlighting
+
+    // ── Quality of life ────────────────────────────────────────────────────
+    "eamodio.gitlens",            // Git blame/history in editor
+    "PKief.material-icon-theme",  // Nicer file icons
+    "christian-kohler.path-intellisense" // Path autocomplete
+  ]
+}
