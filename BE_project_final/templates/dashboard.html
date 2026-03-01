@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Industrial Safety Monitoring System</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --green: #3fb950;
+      --yellow: #d29922;
+      --orange: #f0883e;
+      --red: #f85149;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; }
+
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 { font-size: 1.25rem; color: var(--accent); }
+    .status-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green);
+                  display: inline-block; margin-right: 6px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    main { padding: 1.5rem 2rem; }
+
+    .grid { display: grid; gap: 1rem; }
+    .grid-4 { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); margin-top: 1rem; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+    }
+    .card h3 { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .5rem; }
+    .card .val { font-size: 2rem; font-weight: 700; }
+    .card .sub { font-size: .8rem; color: var(--muted); margin-top: .25rem; }
+
+    .badge {
+      display: inline-block;
+      padding: .15rem .55rem;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 600;
+    }
+    .badge-green  { background: #1a3a24; color: var(--green); }
+    .badge-yellow { background: #2f2415; color: var(--yellow); }
+    .badge-orange { background: #2f1f0e; color: var(--orange); }
+    .badge-red    { background: #2f1010; color: var(--red); }
+
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    th { text-align: left; padding: .6rem .8rem; color: var(--muted); font-weight: 500;
+         border-bottom: 1px solid var(--border); }
+    td { padding: .6rem .8rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+
+    .sms-form { display: flex; gap: .6rem; margin-top: .8rem; flex-wrap: wrap; }
+    .sms-form input, .sms-form textarea {
+      background: var(--bg); border: 1px solid var(--border); color: var(--text);
+      border-radius: 6px; padding: .5rem .75rem; font-size: .9rem; flex: 1; min-width: 200px;
+    }
+    .sms-form button {
+      background: var(--accent); color: #000; border: none; border-radius: 6px;
+      padding: .5rem 1.2rem; cursor: pointer; font-weight: 600;
+    }
+    .sms-form button:hover { opacity: .85; }
+
+    #toast {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      background: var(--card); border: 1px solid var(--border);
+      padding: .75rem 1.25rem; border-radius: 8px;
+      font-size: .9rem; display: none; z-index: 999;
+    }
+
+    #alert-feed { max-height: 320px; overflow-y: auto; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🏭 Industrial Safety Monitoring System</h1>
+  <span><span class="status-dot" id="ws-dot"></span><span id="ws-status">Connecting…</span></span>
+</header>
+
+<main>
+  <!-- KPI cards -->
+  <div class="grid grid-4">
+    <div class="card">
+      <h3>Active Sensors</h3>
+      <div class="val" id="kpi-sensors">—</div>
+      <div class="sub">across all zones</div>
+    </div>
+    <div class="card">
+      <h3>Open Alerts</h3>
+      <div class="val" id="kpi-alerts" style="color:var(--red)">—</div>
+      <div class="sub">pending / unresolved</div>
+    </div>
+    <div class="card">
+      <h3>SMS Sent Today</h3>
+      <div class="val" id="kpi-sms" style="color:var(--accent)">—</div>
+      <div class="sub">via Twilio</div>
+    </div>
+    <div class="card">
+      <h3>Anomalies (24 h)</h3>
+      <div class="val" id="kpi-anomalies" style="color:var(--orange)">—</div>
+      <div class="sub">AI detected</div>
+    </div>
+  </div>
+
+  <div class="grid grid-2">
+    <!-- Live alert feed -->
+    <div class="card">
+      <h3>🔴 Live Alert Feed</h3>
+      <table>
+        <thead>
+          <tr><th>Time</th><th>Zone</th><th>Title</th><th>Severity</th></tr>
+        </thead>
+        <tbody id="alert-feed">
+          <tr><td colspan="4" style="color:var(--muted)">Loading alerts…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SMS Log -->
+    <div class="card">
+      <h3>📩 SMS Log</h3>
+      <table>
+        <thead>
+          <tr><th>Time</th><th>To</th><th>Status</th><th>Message</th></tr>
+        </thead>
+        <tbody id="sms-feed">
+          <tr><td colspan="4" style="color:var(--muted)">Loading SMS logs…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Manual SMS -->
+  <div class="card" style="margin-top:1rem">
+    <h3>📲 Send Manual SMS Alert</h3>
+    <div class="sms-form">
+      <input id="sms-to" type="text" placeholder="To number (e.g. +91XXXXXXXXXX, default from config)" />
+      <input id="sms-msg" type="text" placeholder="Message…" />
+      <button onclick="sendSMS()">Send SMS</button>
+    </div>
+    <p id="sms-result" style="font-size:.82rem;color:var(--muted);margin-top:.5rem"></p>
+  </div>
+</main>
+
+<div id="toast"></div>
+
+<script>
+  const BASE = window.location.origin;
+  let token = localStorage.getItem('jwt_token') || '';
+
+  function showToast(msg, color = '#58a6ff') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.style.borderColor = color;
+    t.style.display = 'block';
+    setTimeout(() => t.style.display = 'none', 3500);
+  }
+
+  function severityBadge(s) {
+    const map = { LOW: 'badge-green', MEDIUM: 'badge-yellow', HIGH: 'badge-orange', CRITICAL: 'badge-red' };
+    return `<span class="badge ${map[s] || 'badge-yellow'}">${s}</span>`;
+  }
+
+  function smsStatusBadge(s) {
+    const ok = ['sent','queued','delivered'].includes(s);
+    return `<span class="badge ${ok ? 'badge-green' : 'badge-red'}">${s}</span>`;
+  }
+
+  // --- Load alerts ---
+  async function loadAlerts() {
+    try {
+      const r = await fetch(`${BASE}/api/v1/alerts/?limit=20`);
+      const alerts = await r.json();
+      document.getElementById('kpi-alerts').textContent = alerts.filter(a => a.status === 'PENDING').length;
+      const tbody = document.getElementById('alert-feed');
+      if (!alerts.length) { tbody.innerHTML = '<tr><td colspan="4" style="color:var(--muted)">No alerts yet.</td></tr>'; return; }
+      tbody.innerHTML = alerts.map(a => `
+        <tr>
+          <td>${new Date(a.created_at).toLocaleTimeString()}</td>
+          <td>${a.zone_id ?? '—'}</td>
+          <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${a.title}">${a.title}</td>
+          <td>${severityBadge(a.severity)}</td>
+        </tr>`).join('');
+    } catch(e) { console.error('loadAlerts', e); }
+  }
+
+  // --- Load SMS logs ---
+  async function loadSMSLogs() {
+    if (!token) return;
+    try {
+      const r = await fetch(`${BASE}/api/v1/alerts/sms/logs?limit=20`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      if (!r.ok) return;
+      const logs = await r.json();
+      document.getElementById('kpi-sms').textContent = logs.filter(l =>
+        new Date(l.sent_at).toDateString() === new Date().toDateString()
+      ).length;
+      const tbody = document.getElementById('sms-feed');
+      if (!logs.length) { tbody.innerHTML = '<tr><td colspan="4" style="color:var(--muted)">No SMS sent yet.</td></tr>'; return; }
+      tbody.innerHTML = logs.map(l => `
+        <tr>
+          <td>${new Date(l.sent_at).toLocaleTimeString()}</td>
+          <td>${l.to_number}</td>
+          <td>${smsStatusBadge(l.status)}</td>
+          <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${l.message_body}">${l.message_body}</td>
+        </tr>`).join('');
+    } catch(e) { console.error('loadSMSLogs', e); }
+  }
+
+  // --- Load sensor count ---
+  async function loadSensors() {
+    try {
+      const r = await fetch(`${BASE}/api/v1/sensors/`);
+      const sensors = await r.json();
+      document.getElementById('kpi-sensors').textContent = sensors.length;
+    } catch(e) {}
+  }
+
+  // --- Manual SMS send ---
+  async function sendSMS() {
+    const to = document.getElementById('sms-to').value.trim();
+    const msg = document.getElementById('sms-msg').value.trim();
+    if (!msg) { showToast('Enter a message.', 'var(--red)'); return; }
+    if (!token) { showToast('Login required for manual SMS.', 'var(--orange)'); return; }
+    try {
+      const r = await fetch(`${BASE}/api/v1/alerts/sms/send`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ message: msg, to_number: to || null })
+      });
+      const data = await r.json();
+      if (r.ok) {
+        showToast(`✅ SMS sent! SID: ${data.twilio_sid || 'N/A'}`, 'var(--green)');
+        document.getElementById('sms-result').textContent = `Status: ${data.status} | SID: ${data.twilio_sid}`;
+        loadSMSLogs();
+      } else {
+        showToast(`❌ Failed: ${JSON.stringify(data.detail)}`, 'var(--red)');
+      }
+    } catch(e) { showToast('Network error', 'var(--red)'); }
+  }
+
+  // --- WebSocket live feed ---
+  function connectWS() {
+    const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+    const ws = new WebSocket(`${protocol}://${location.host}/ws/live`);
+    const dot = document.getElementById('ws-dot');
+    const label = document.getElementById('ws-status');
+
+    ws.onopen = () => {
+      dot.style.background = 'var(--green)';
+      label.textContent = 'Live';
+    };
+    ws.onmessage = (e) => {
+      const data = JSON.parse(e.data);
+      if (data.type === 'alert') {
+        showToast(`🚨 ${data.severity}: ${data.title}`, 'var(--red)');
+        loadAlerts();
+      } else if (data.type === 'reading' && data.is_anomaly) {
+        showToast(`⚠️ Anomaly on sensor ${data.sensor_id}: ${data.value}`, 'var(--orange)');
+        const cur = parseInt(document.getElementById('kpi-anomalies').textContent) || 0;
+        document.getElementById('kpi-anomalies').textContent = cur + 1;
+      }
+    };
+    ws.onclose = () => {
+      dot.style.background = 'var(--red)';
+      label.textContent = 'Reconnecting…';
+      setTimeout(connectWS, 3000);
+    };
+  }
+
+  // --- Init ---
+  loadSensors();
+  loadAlerts();
+  loadSMSLogs();
+  connectWS();
+  setInterval(() => { loadAlerts(); loadSMSLogs(); loadSensors(); }, 15000);
+</script>
+</body>
+</html>
