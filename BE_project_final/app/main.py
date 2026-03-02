@@ -79,9 +79,19 @@ app.include_router(ws_router)       # WebSocket — no versioned prefix
 # Dashboard (served from templates/)
 # ---------------------------------------------------------------------------
 
-@app.get("/", response_class=HTMLResponse)
+@app.get("/dashboard", response_class=HTMLResponse)
 def dashboard(request: Request):
     return templates.TemplateResponse(request, "dashboard.html")
+
+
+# ---------------------------------------------------------------------------
+# Portfolio (public-facing website)
+# ---------------------------------------------------------------------------
+
+@app.get("/", response_class=HTMLResponse)
+@app.get("/portfolio", response_class=HTMLResponse)
+def portfolio(request: Request):
+    return templates.TemplateResponse(request, "portfolio.html")
 
 
 @app.get("/health")
