@@ -1,11 +1,21 @@
 # Sahil Bodke — Personal Portfolio Website
 
-A responsive personal portfolio/resume website built with **HTML5, CSS3, and JavaScript**, designed to be deployed publicly on **Google Firebase Hosting**.
+A responsive personal portfolio/resume website built with **HTML5, CSS3, and JavaScript**, deployed publicly on **GitHub Pages** (free, no login required).
 
 ## 🌐 Live Site
 
-Deploy to Firebase Hosting (see deployment steps below) to get a public URL like:
-`https://your-project-id.web.app`
+**👉 Visit: [https://sb110604.github.io/SB110604/](https://sb110604.github.io/SB110604/)**
+
+> **Domain:** `sb110604.github.io` — a free subdomain provided by **GitHub Pages**.
+> The full URL is `https://sb110604.github.io/SB110604/` (repository name is the path segment).
+
+The site deploys automatically every time code is pushed to the `main`/`master` branch via the GitHub Actions workflow at `.github/workflows/deploy-pages.yml`.
+
+### Enable GitHub Pages (one-time setup)
+1. Go to your repository on GitHub: **Settings → Pages**
+2. Under **Source**, select **GitHub Actions**
+3. Push to `main`/`master` — the workflow deploys automatically
+4. Your site will be live at `https://sb110604.github.io/SB110604/`
 
 ## ✨ Features
 
