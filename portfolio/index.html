@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sahil Bodke - Computer Science Student | AI & ML | Data Science | Cloud" />
+  <meta name="keywords" content="Sahil Bodke, Portfolio, Resume, AI, ML, Data Science, Python, Cloud" />
+  <meta name="author" content="Sahil Bodke" />
+  <title>Sahil Bodke | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <span class="nav-logo">SB</span>
+      <span class="nav-name">Sahil Bodke</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-avatar">SB</div>
+      <h1 class="hero-title">Hi, I'm <span class="highlight">Sahil Bodke</span></h1>
+      <p class="hero-subtitle">
+        🎓 Computer Science Student &nbsp;|&nbsp;
+        🤖 AI &amp; ML &nbsp;|&nbsp;
+        📊 Data Science &nbsp;|&nbsp;
+        ☁️ Cloud
+      </p>
+      <p class="hero-description">
+        Final-year CS student passionate about building intelligent systems using Python,
+        Computer Vision, and Cloud technologies. Currently working on an AI-based
+        industrial safety project.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+        <a href="#projects" class="btn btn-outline">View Projects</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/SB110604" target="_blank" rel="noopener" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/sahilbodke" target="_blank" rel="noopener" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://instagram.com/bodkesahil_11" target="_blank" rel="noopener" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="mailto:sahilbodke51@gmail.com" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEARCH BAR ===== -->
+  <section class="search-section">
+    <div class="container">
+      <div class="search-wrapper">
+        <i class="fas fa-search search-icon"></i>
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Search skills, projects, or anything..."
+          aria-label="Search portfolio"
+        />
+        <button class="search-clear" id="searchClear" aria-label="Clear search">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="searchResults" class="search-results" role="region" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-avatar">SB</div>
+          <h3>Sahil Bodke</h3>
+          <p class="about-tagline">Computer Science Engineer</p>
+          <div class="about-info">
+            <div class="info-item">
+              <i class="fas fa-graduation-cap"></i>
+              <span>Final-year B.E. (Computer Science)</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>India</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <span>sahilbodke51@gmail.com</span>
+            </div>
+            <div class="info-item">
+              <i class="fab fa-github"></i>
+              <span>github.com/SB110604</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text">
+          <h3>Who Am I?</h3>
+          <p>
+            I am a passionate Computer Science student in my final year of B.E., specializing in
+            <strong>Artificial Intelligence &amp; Machine Learning</strong>,
+            <strong>Data Science</strong>, and <strong>Cloud Computing</strong>.
+          </p>
+          <p>
+            I enjoy solving real-world problems using technology. My final-year project focuses on
+            <strong>AI-based Industrial Safety</strong> — using Computer Vision to detect safety
+            hazards in industrial environments in real-time.
+          </p>
+          <p>
+            I'm proficient in <strong>Python</strong>, experienced with frameworks like
+            <strong>FastAPI</strong>, <strong>Django</strong>, and comfortable with cloud platforms
+            like <strong>Google Cloud</strong> and <strong>Firebase</strong>.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">10+</span>
+              <span class="stat-label">Technologies</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">3+</span>
+              <span class="stat-label">Years Coding</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="skills-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="languages">Languages</button>
+        <button class="filter-btn" data-filter="frameworks">Frameworks</button>
+        <button class="filter-btn" data-filter="cloud">Cloud &amp; DevOps</button>
+        <button class="filter-btn" data-filter="data">Data &amp; ML</button>
+        <button class="filter-btn" data-filter="databases">Databases</button>
+      </div>
+      <div class="skills-grid" id="skillsGrid">
+
+        <!-- Languages -->
+        <div class="skill-card searchable" data-category="languages" data-tags="python programming language">
+          <i class="fab fa-python skill-icon"></i>
+          <span>Python</span>
+        </div>
+        <div class="skill-card searchable" data-category="languages" data-tags="c++ cplusplus programming language">
+          <i class="fas fa-code skill-icon"></i>
+          <span>C++</span>
+        </div>
+        <div class="skill-card searchable" data-category="languages" data-tags="c programming language">
+          <i class="fas fa-code skill-icon"></i>
+          <span>C</span>
+        </div>
+        <div class="skill-card searchable" data-category="languages" data-tags="html html5 web frontend">
+          <i class="fab fa-html5 skill-icon"></i>
+          <span>HTML5</span>
+        </div>
+        <div class="skill-card searchable" data-category="languages" data-tags="php web backend language">
+          <i class="fab fa-php skill-icon"></i>
+          <span>PHP</span>
+        </div>
+        <div class="skill-card searchable" data-category="languages" data-tags="latex document typesetting">
+          <i class="fas fa-file-alt skill-icon"></i>
+          <span>LaTeX</span>
+        </div>
+
+        <!-- Frameworks -->
+        <div class="skill-card searchable" data-category="frameworks" data-tags="fastapi python api rest backend framework">
+          <i class="fas fa-bolt skill-icon"></i>
+          <span>FastAPI</span>
+        </div>
+        <div class="skill-card searchable" data-category="frameworks" data-tags="django python web framework backend">
+          <i class="fas fa-layer-group skill-icon"></i>
+          <span>Django</span>
+        </div>
+        <div class="skill-card searchable" data-category="frameworks" data-tags="angular javascript frontend framework">
+          <i class="fab fa-angular skill-icon"></i>
+          <span>Angular</span>
+        </div>
+        <div class="skill-card searchable" data-category="frameworks" data-tags="dotnet .net microsoft framework">
+          <i class="fas fa-code-branch skill-icon"></i>
+          <span>.NET</span>
+        </div>
+        <div class="skill-card searchable" data-category="frameworks" data-tags="socket.io websocket realtime">
+          <i class="fas fa-plug skill-icon"></i>
+          <span>Socket.io</span>
+        </div>
+        <div class="skill-card searchable" data-category="frameworks" data-tags="selenium automation testing browser">
+          <i class="fas fa-robot skill-icon"></i>
+          <span>Selenium</span>
+        </div>
+
+        <!-- Cloud & DevOps -->
+        <div class="skill-card searchable" data-category="cloud" data-tags="google cloud gcp platform cloud">
+          <i class="fab fa-google skill-icon"></i>
+          <span>Google Cloud</span>
+        </div>
+        <div class="skill-card searchable" data-category="cloud" data-tags="firebase google realtime database hosting">
+          <i class="fas fa-fire skill-icon"></i>
+          <span>Firebase</span>
+        </div>
+        <div class="skill-card searchable" data-category="cloud" data-tags="docker container devops">
+          <i class="fab fa-docker skill-icon"></i>
+          <span>Docker</span>
+        </div>
+        <div class="skill-card searchable" data-category="cloud" data-tags="kubernetes k8s container orchestration">
+          <i class="fas fa-dharmachakra skill-icon"></i>
+          <span>Kubernetes</span>
+        </div>
+        <div class="skill-card searchable" data-category="cloud" data-tags="github actions ci/cd devops automation">
+          <i class="fab fa-github skill-icon"></i>
+          <span>GitHub Actions</span>
+        </div>
+        <div class="skill-card searchable" data-category="cloud" data-tags="raspberry pi iot embedded hardware">
+          <i class="fas fa-microchip skill-icon"></i>
+          <span>Raspberry Pi</span>
+        </div>
+        <div class="skill-card searchable" data-category="cloud" data-tags="cisco networking ccna">
+          <i class="fas fa-network-wired skill-icon"></i>
+          <span>Cisco</span>
+        </div>
+
+        <!-- Data & ML -->
+        <div class="skill-card searchable" data-category="data" data-tags="tensorflow deep learning ml ai">
+          <i class="fas fa-brain skill-icon"></i>
+          <span>TensorFlow</span>
+        </div>
+        <div class="skill-card searchable" data-category="data" data-tags="pytorch deep learning ml ai neural network">
+          <i class="fas fa-fire-alt skill-icon"></i>
+          <span>PyTorch</span>
+        </div>
+        <div class="skill-card searchable" data-category="data" data-tags="scikit learn sklearn machine learning">
+          <i class="fas fa-chart-line skill-icon"></i>
+          <span>Scikit-learn</span>
+        </div>
+        <div class="skill-card searchable" data-category="data" data-tags="pandas data analysis dataframe python">
+          <i class="fas fa-table skill-icon"></i>
+          <span>Pandas</span>
+        </div>
+        <div class="skill-card searchable" data-category="data" data-tags="numpy numerical python array">
+          <i class="fas fa-calculator skill-icon"></i>
+          <span>NumPy</span>
+        </div>
+        <div class="skill-card searchable" data-category="data" data-tags="matplotlib visualization chart plot python">
+          <i class="fas fa-chart-bar skill-icon"></i>
+          <span>Matplotlib</span>
+        </div>
+        <div class="skill-card searchable" data-category="data" data-tags="plotly visualization interactive chart">
+          <i class="fas fa-chart-pie skill-icon"></i>
+          <span>Plotly</span>
+        </div>
+        <div class="skill-card searchable" data-category="data" data-tags="scipy scientific python statistics">
+          <i class="fas fa-flask skill-icon"></i>
+          <span>SciPy</span>
+        </div>
+        <div class="skill-card searchable" data-category="data" data-tags="power bi business intelligence data visualization">
+          <i class="fas fa-tachometer-alt skill-icon"></i>
+          <span>Power BI</span>
+        </div>
+        <div class="skill-card searchable" data-category="data" data-tags="anaconda python data science environment">
+          <i class="fas fa-cubes skill-icon"></i>
+          <span>Anaconda</span>
+        </div>
+        <div class="skill-card searchable" data-category="data" data-tags="hadoop apache big data distributed">
+          <i class="fas fa-server skill-icon"></i>
+          <span>Apache Hadoop</span>
+        </div>
+
+        <!-- Databases -->
+        <div class="skill-card searchable" data-category="databases" data-tags="mysql sql relational database">
+          <i class="fas fa-database skill-icon"></i>
+          <span>MySQL</span>
+        </div>
+        <div class="skill-card searchable" data-category="databases" data-tags="mongodb nosql document database">
+          <i class="fas fa-leaf skill-icon"></i>
+          <span>MongoDB</span>
+        </div>
+        <div class="skill-card searchable" data-category="databases" data-tags="microsoft sql server mssql database">
+          <i class="fas fa-hdd skill-icon"></i>
+          <span>MS SQL Server</span>
+        </div>
+        <div class="skill-card searchable" data-category="databases" data-tags="cockroachdb distributed sql database">
+          <i class="fas fa-sitemap skill-icon"></i>
+          <span>CockroachDB</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION SECTION ===== -->
+  <section class="section" id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="timeline">
+
+        <div class="timeline-item searchable" data-category="education" data-tags="be bachelor engineering computer science degree university">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3>Bachelor of Engineering (B.E.)</h3>
+              <span class="timeline-badge">2021 – 2025</span>
+            </div>
+            <p class="timeline-sub">Computer Science &amp; Engineering</p>
+            <p class="timeline-desc">
+              Pursuing final-year B.E. in Computer Science. Focused on Artificial Intelligence,
+              Machine Learning, Data Science, and Cloud Computing. Final-year project on
+              AI-based Industrial Safety using Computer Vision.
+            </p>
+            <div class="timeline-tags">
+              <span class="tag">AI/ML</span>
+              <span class="tag">Data Science</span>
+              <span class="tag">Cloud</span>
+              <span class="tag">Computer Vision</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item searchable" data-category="education" data-tags="hsc 12th higher secondary school science">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3>Higher Secondary Certificate (HSC)</h3>
+              <span class="timeline-badge">2019 – 2021</span>
+            </div>
+            <p class="timeline-sub">Science — Physics, Chemistry, Mathematics &amp; Computer Science</p>
+            <p class="timeline-desc">
+              Completed HSC with strong focus on Mathematics and Computer Science,
+              building a solid foundation for engineering studies.
+            </p>
+            <div class="timeline-tags">
+              <span class="tag">Mathematics</span>
+              <span class="tag">Physics</span>
+              <span class="tag">Computer Science</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section class="section section-alt" id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card searchable" data-category="projects" data-tags="ai industrial safety computer vision python fastapi iot raspberry pi tensorflow">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-hard-hat"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/SB110604" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>AI Industrial Safety System</h3>
+          <p>
+            Final-year BE project using Computer Vision and Deep Learning to detect safety
+            hazards (PPE compliance, restricted zones) in industrial environments in real-time
+            using Raspberry Pi and cloud integration.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Computer Vision</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">TensorFlow</span>
+            <span class="tech-tag">Raspberry Pi</span>
+            <span class="tech-tag">Google Cloud</span>
+          </div>
+          <span class="project-status status-active">🚀 In Progress</span>
+        </div>
+
+        <div class="project-card searchable" data-category="projects" data-tags="backend api fastapi python websocket sensor dashboard iot mongodb docker">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-server"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/SB110604/SB110604" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>IoT Sensor Dashboard Backend</h3>
+          <p>
+            A FastAPI-based backend system for real-time IoT sensor data collection,
+            processing, and alerting with WebSocket support, AI-powered analysis,
+            and Twilio SMS notifications.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">WebSocket</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Docker</span>
+          </div>
+          <span class="project-status status-complete">✅ Completed</span>
+        </div>
+
+        <div class="project-card searchable" data-category="projects" data-tags="data science machine learning analysis python pandas numpy sklearn matplotlib">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-brain"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/SB110604" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>Data Science &amp; ML Projects</h3>
+          <p>
+            Collection of data science and machine learning projects including predictive
+            models, data visualization dashboards, and exploratory data analysis using
+            Python scientific stack.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">Scikit-learn</span>
+            <span class="tech-tag">Matplotlib</span>
+            <span class="tech-tag">Plotly</span>
+          </div>
+          <span class="project-status status-complete">✅ Completed</span>
+        </div>
+
+        <div class="project-card searchable" data-category="projects" data-tags="personal portfolio website html css javascript firebase google cloud deployment">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-globe"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/SB110604/SB110604" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>Personal Portfolio Website</h3>
+          <p>
+            This portfolio website — a responsive personal website showcasing bio,
+            skills, projects, and resume with a live search feature. Deployed on
+            Google Firebase Hosting for public access.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Firebase Hosting</span>
+          </div>
+          <span class="project-status status-active">🚀 Live</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">
+        I'm always open to discussing new opportunities, collaborations, or just a chat!
+      </p>
+      <div class="contact-grid">
+        <a href="mailto:sahilbodke51@gmail.com" class="contact-card searchable" data-category="contact" data-tags="email gmail contact">
+          <i class="fas fa-envelope contact-icon"></i>
+          <h3>Email</h3>
+          <p>sahilbodke51@gmail.com</p>
+        </a>
+        <a href="https://linkedin.com/in/sahilbodke" target="_blank" rel="noopener" class="contact-card searchable" data-category="contact" data-tags="linkedin professional contact network">
+          <i class="fab fa-linkedin contact-icon"></i>
+          <h3>LinkedIn</h3>
+          <p>linkedin.com/in/sahilbodke</p>
+        </a>
+        <a href="https://github.com/SB110604" target="_blank" rel="noopener" class="contact-card searchable" data-category="contact" data-tags="github code repository projects">
+          <i class="fab fa-github contact-icon"></i>
+          <h3>GitHub</h3>
+          <p>github.com/SB110604</p>
+        </a>
+        <a href="https://instagram.com/bodkesahil_11" target="_blank" rel="noopener" class="contact-card searchable" data-category="contact" data-tags="instagram social media contact">
+          <i class="fab fa-instagram contact-icon"></i>
+          <h3>Instagram</h3>
+          <p>@bodkesahil_11</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>
+        &copy; 2025 <strong>Sahil Bodke</strong>. Built with ❤️ &amp; deployed on
+        <a href="https://firebase.google.com/docs/hosting" target="_blank" rel="noopener">Google Firebase Hosting</a>.
+      </p>
+      <div class="footer-socials">
+        <a href="https://github.com/SB110604" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/sahilbodke" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://instagram.com/bodkesahil_11" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:sahilbodke51@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
