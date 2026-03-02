@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Er. Sahil Bodke – Computer Science Engineer specialising in AI, ML, Data Science and Cloud Computing." />
+  <meta name="keywords" content="Sahil Bodke, portfolio, AI, ML, Data Science, Python, Firebase, software engineer" />
+  <meta name="author" content="Er. Sahil Bodke" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.er.sahilbodke.com/" />
+  <meta property="og:title" content="Er. Sahil Bodke | AI & ML Engineer" />
+  <meta property="og:description" content="Computer Science Engineer specialising in AI, ML, Data Science and Cloud Computing." />
+  <meta property="og:image" content="assets/images/profile.jpg" />
+
+  <title>Er. Sahil Bodke | AI &amp; ML Engineer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">Er. Sahil Bodke</a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">Er. Sahil Bodke</h1>
+        <h2 class="hero-title">
+          <span class="typed-text" id="typed-text"></span>
+          <span class="cursor">|</span>
+        </h2>
+        <p class="hero-bio">
+          Computer Science Engineer passionate about <strong>Artificial Intelligence</strong>,
+          <strong>Machine Learning</strong>, <strong>Data Science</strong>, and <strong>Cloud Computing</strong>.
+          Building intelligent solutions for real-world industrial challenges.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-actions">
+          <a href="assets/resume.pdf" download="Sahil_Bodke_Resume.pdf" class="btn btn-primary">
+            <i class="fas fa-file-download"></i> Download Resume
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fas fa-envelope"></i> Hire Me
+          </a>
+        </div>
+
+        <!-- Social Links -->
+        <div class="hero-socials">
+          <a href="https://linkedin.com/in/SahilBodke" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon linkedin">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/SB110604" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon github">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:sahilbodke51@gmail.com" aria-label="Email" class="social-icon email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://instagram.com/bodkesahil_11" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="profile-frame">
+          <img src="assets/images/profile.jpg" alt="Er. Sahil Bodke" class="profile-photo" id="profile-photo" />
+          <div class="profile-placeholder" id="profile-placeholder" aria-label="Profile photo placeholder" role="img">
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+        <div class="floating-badge badge-ai">AI/ML</div>
+        <div class="floating-badge badge-cloud">Cloud ☁️</div>
+        <div class="floating-badge badge-python">Python 🐍</div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-down" aria-label="Scroll down">
+      <i class="fas fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <h2 class="section-title">About <span>Me</span></h2>
+      <p class="section-subtitle">Get to know me better</p>
+
+      <div class="about-grid">
+        <div class="about-info">
+          <h3>Who I Am</h3>
+          <p>
+            I'm a final-year Computer Science Engineering student with a deep interest in
+            Artificial Intelligence, Machine Learning, and Data Science. My journey in tech
+            started with curiosity and has grown into a passion for building intelligent,
+            data-driven systems.
+          </p>
+          <p>
+            Currently working on an <strong>AI-powered Industrial Safety</strong> system for my
+            final-year project — combining computer vision, real-time alerting, and cloud
+            deployment to make workplaces safer.
+          </p>
+          <p>
+            When I'm not coding, I enjoy exploring the latest research in deep learning,
+            contributing to open-source, and sharing knowledge with the community.
+          </p>
+
+          <div class="about-cta">
+            <a href="assets/resume.pdf" download="Sahil_Bodke_Resume.pdf" class="btn btn-primary">
+              <i class="fas fa-file-pdf"></i> View Resume
+            </a>
+            <a href="https://linkedin.com/in/SahilBodke" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div class="about-cards">
+          <div class="info-card">
+            <i class="fas fa-graduation-cap"></i>
+            <h4>Education</h4>
+            <p>B.E. Computer Science<br/>Final Year Student</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h4>Location</h4>
+            <p>India</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-code"></i>
+            <h4>Experience</h4>
+            <p>2+ Years Projects &amp;<br/>Open Source</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-brain"></i>
+            <h4>Focus Areas</h4>
+            <p>AI · ML · Data Science<br/>Cloud Computing</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <h2 class="section-title">Tech <span>Stack</span></h2>
+      <p class="section-subtitle">Technologies I work with</p>
+
+      <div class="skills-categories">
+
+        <div class="skill-category">
+          <h3><i class="fas fa-code"></i> Languages</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">LaTeX</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="fas fa-robot"></i> AI / ML</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">scikit-learn</span>
+            <span class="skill-tag">OpenCV</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">Matplotlib</span>
+            <span class="skill-tag">SciPy</span>
+            <span class="skill-tag">Plotly</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="fas fa-server"></i> Frameworks &amp; Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Django</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Angular</span>
+            <span class="skill-tag">Socket.io</span>
+            <span class="skill-tag">Selenium</span>
+            <span class="skill-tag">Anaconda</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="fas fa-cloud"></i> Cloud &amp; DevOps</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Google Cloud</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Apache Hadoop</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="fas fa-database"></i> Databases</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Microsoft SQL Server</span>
+            <span class="skill-tag">CockroachDB</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3><i class="fas fa-tools"></i> Other Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Raspberry Pi</span>
+            <span class="skill-tag">Cisco</span>
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">Canva</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <h2 class="section-title">My <span>Projects</span></h2>
+      <p class="section-subtitle">Some things I've built</p>
+
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <div class="project-header">
+            <i class="fas fa-hard-hat project-icon"></i>
+            <div class="project-links">
+              <a href="https://github.com/SB110604" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>AI Industrial Safety System</h3>
+          <p>Final-year BE project — a real-time computer-vision-based industrial safety monitoring system that detects PPE compliance, hazardous zones, and alerts supervisors instantly via cloud notifications.</p>
+          <div class="project-tags">
+            <span>Python</span><span>OpenCV</span><span>TensorFlow</span><span>FastAPI</span><span>Firebase</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <i class="fas fa-chart-line project-icon"></i>
+            <div class="project-links">
+              <a href="https://github.com/SB110604" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>Data Science Analytics Dashboard</h3>
+          <p>Interactive analytics dashboard built with Python, Plotly, and Django to visualise large datasets and surface actionable insights using ML-powered anomaly detection.</p>
+          <div class="project-tags">
+            <span>Python</span><span>Pandas</span><span>Plotly</span><span>Django</span><span>scikit-learn</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <i class="fas fa-cloud project-icon"></i>
+            <div class="project-links">
+              <a href="https://github.com/SB110604" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>Cloud-Deployed ML Pipeline</h3>
+          <p>End-to-end machine-learning pipeline deployed on Google Cloud Platform using Docker and Kubernetes — automated model training, evaluation, and serving with CI/CD via GitHub Actions.</p>
+          <div class="project-tags">
+            <span>GCP</span><span>Docker</span><span>Kubernetes</span><span>PyTorch</span><span>GitHub Actions</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <i class="fas fa-eye project-icon"></i>
+            <div class="project-links">
+              <a href="https://github.com/SB110604" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>Computer Vision Object Detector</h3>
+          <p>Real-time object detection and tracking system using PyTorch and OpenCV, capable of processing live camera feeds for surveillance and automated counting applications.</p>
+          <div class="project-tags">
+            <span>Python</span><span>PyTorch</span><span>OpenCV</span><span>NumPy</span><span>Raspberry Pi</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <i class="fas fa-database project-icon"></i>
+            <div class="project-links">
+              <a href="https://github.com/SB110604" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>Big Data Processing with Hadoop</h3>
+          <p>Distributed data processing pipeline using Apache Hadoop and Python to analyse and aggregate large-scale log files, reducing processing time by over 60%.</p>
+          <div class="project-tags">
+            <span>Python</span><span>Hadoop</span><span>MapReduce</span><span>MongoDB</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <i class="fas fa-globe project-icon"></i>
+            <div class="project-links">
+              <a href="https://github.com/SB110604" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3>Portfolio Website</h3>
+          <p>This very portfolio — a fully responsive, modern website built with vanilla HTML, CSS, and JavaScript, deployed on Firebase Hosting with custom domain and CI/CD via GitHub Actions.</p>
+          <div class="project-tags">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Firebase</span><span>GitHub Actions</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In <span>Touch</span></h2>
+      <p class="section-subtitle">Let's work together or just say hi!</p>
+
+      <div class="contact-grid">
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p>Feel free to reach out for collaborations, project discussions, or just a friendly chat about AI and tech!</p>
+
+          <div class="contact-items">
+            <a href="mailto:sahilbodke51@gmail.com" class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-detail">
+                <span class="contact-label">Email</span>
+                <span class="contact-value">sahilbodke51@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="https://linkedin.com/in/SahilBodke" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+              <div class="contact-detail">
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value">linkedin.com/in/SahilBodke</span>
+              </div>
+            </a>
+
+            <a href="https://github.com/SB110604" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <div class="contact-icon"><i class="fab fa-github"></i></div>
+              <div class="contact-detail">
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value">github.com/SB110604</span>
+              </div>
+            </a>
+
+            <a href="https://instagram.com/bodkesahil_11" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+              <div class="contact-detail">
+                <span class="contact-label">Instagram</span>
+                <span class="contact-value">@bodkesahil_11</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="contact-actions">
+            <a href="mailto:sahilbodke51@gmail.com?subject=Hello%20Sahil!&body=Hi%20Sahil%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.%0A%0A"
+               class="btn btn-primary btn-full">
+              <i class="fas fa-paper-plane"></i> Send Email
+            </a>
+            <a href="assets/resume.pdf" download="Sahil_Bodke_Resume.pdf" class="btn btn-outline btn-full">
+              <i class="fas fa-file-download"></i> Download Resume
+            </a>
+            <a href="https://linkedin.com/in/SahilBodke" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin btn-full">
+              <i class="fab fa-linkedin-in"></i> Connect on LinkedIn
+            </a>
+            <a href="https://github.com/SB110604" target="_blank" rel="noopener noreferrer" class="btn btn-github btn-full">
+              <i class="fab fa-github"></i> Follow on GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <h3>Send a Message</h3>
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name">Full Name <span class="required">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required />
+              <span class="field-error" id="name-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+              <span class="field-error" id="email-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="What's this about?" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message <span class="required">*</span></label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
+              <span class="field-error" id="message-error"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+              <span class="btn-text"><i class="fas fa-paper-plane"></i> Send Message</span>
+              <span class="btn-loading" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Sending…</span>
+            </button>
+
+            <div class="form-success" id="form-success" style="display:none;">
+              <i class="fas fa-check-circle"></i>
+              Message sent! I'll get back to you soon.
+            </div>
+            <div class="form-note">
+              <small><i class="fas fa-info-circle"></i> This form uses your default email client. Alternatively, email me directly at <a href="mailto:sahilbodke51@gmail.com">sahilbodke51@gmail.com</a>.</small>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <p class="footer-name">Er. Sahil Bodke</p>
+          <p class="footer-tagline">AI &amp; ML Engineer · Computer Science</p>
+        </div>
+        <div class="footer-socials">
+          <a href="https://linkedin.com/in/SahilBodke" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/SB110604" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:sahilbodke51@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://instagram.com/bodkesahil_11" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Er. Sahil Bodke. All rights reserved.</p>
+        <p>Built with <i class="fas fa-heart" style="color:#e74c3c;"></i> and deployed on <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer">Firebase</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
