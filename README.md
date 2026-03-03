@@ -7,6 +7,8 @@ A modern, responsive portfolio website for **Er. Sahil Bodke** — Computer Scie
 
 🌐 **Live site:** [https://www.sahilbodke.xyz](https://www.sahilbodke.xyz)
 
+📖 **Domain setup demo guide:** [`public/domain-guide.html`](public/domain-guide.html) — visual step-by-step walkthrough for claiming the free `.xyz` domain via GitHub Student Pack and wiring Namecheap DNS to Firebase
+
 ---
 
 ## ✨ Features
