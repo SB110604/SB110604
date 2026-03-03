@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Domain Guide – sahilbodke.xyz | GitHub Student Pack + Namecheap</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* ── Variables (same palette as main site) ── */
+    :root {
+      --clr-primary:   #6c63ff;
+      --clr-primary-d: #574fd6;
+      --clr-secondary: #f72585;
+      --clr-accent:    #4cc9f0;
+      --clr-green:     #06d6a0;
+      --clr-orange:    #ffb703;
+      --clr-dark:      #0d0d1a;
+      --clr-dark-2:    #14142b;
+      --clr-dark-3:    #1e1e3a;
+      --clr-card:      #1a1a2e;
+      --clr-text:      #e0e0f0;
+      --clr-muted:     #9090b0;
+      --clr-white:     #ffffff;
+      --radius:        12px;
+      --radius-lg:     20px;
+      --shadow-card:   0 8px 32px rgba(0,0,0,0.35);
+      --font-main:     'Inter', sans-serif;
+      --font-code:     'Fira Code', monospace;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-main); background: var(--clr-dark); color: var(--clr-text); line-height: 1.7; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Layout ── */
+    .container { width: min(960px, 94vw); margin-inline: auto; }
+
+    /* ── Top Bar ── */
+    .topbar {
+      background: var(--clr-dark-2);
+      border-bottom: 1px solid rgba(108,99,255,.2);
+      padding: .9rem 0;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .topbar .inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .topbar-logo { font-size: 1.1rem; font-weight: 700; color: var(--clr-primary); }
+    .topbar-logo span { color: var(--clr-text); }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: .45rem;
+      font-size: .875rem; font-weight: 600; color: var(--clr-primary);
+      padding: .4rem .9rem; border: 1.5px solid var(--clr-primary); border-radius: 8px;
+      transition: .25s;
+    }
+    .back-btn:hover { background: var(--clr-primary); color: #fff; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--clr-dark-2) 0%, #0d0d2b 100%);
+      padding: 4rem 0 3rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(108,99,255,.15);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(108,99,255,.15); border: 1px solid rgba(108,99,255,.3);
+      color: var(--clr-primary); font-size: .8rem; font-weight: 600; letter-spacing: .05em;
+      padding: .35rem .9rem; border-radius: 50px; margin-bottom: 1.4rem;
+      text-transform: uppercase;
+    }
+    .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+    .hero h1 span { color: var(--clr-primary); }
+    .hero p { color: var(--clr-muted); font-size: 1.05rem; max-width: 580px; margin: 0 auto 2rem; }
+
+    .progress-bar-wrap {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; flex-wrap: wrap; margin-top: 1.5rem;
+    }
+    .prog-step {
+      display: flex; flex-direction: column; align-items: center; gap: .3rem;
+      min-width: 100px;
+    }
+    .prog-circle {
+      width: 42px; height: 42px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .95rem; font-weight: 700; border: 2px solid;
+      position: relative; z-index: 1;
+    }
+    .prog-circle.done  { background: var(--clr-green);  border-color: var(--clr-green);  color: #fff; }
+    .prog-circle.active{ background: var(--clr-primary); border-color: var(--clr-primary); color: #fff; box-shadow: 0 0 0 6px rgba(108,99,255,.25); }
+    .prog-circle.todo  { background: var(--clr-dark-3); border-color: var(--clr-muted);   color: var(--clr-muted); }
+    .prog-label { font-size: .7rem; font-weight: 600; color: var(--clr-muted); text-align: center; max-width: 80px; }
+    .prog-line {
+      flex: 1; min-width: 28px; height: 2px;
+      background: rgba(108,99,255,.25);
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── Step sections ── */
+    .guide-section { padding: 3.5rem 0; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .guide-section:last-of-type { border-bottom: none; }
+
+    .step-header {
+      display: flex; align-items: flex-start; gap: 1.2rem; margin-bottom: 2rem;
+    }
+    .step-num {
+      min-width: 48px; height: 48px; border-radius: 50%;
+      background: var(--clr-primary); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem; font-weight: 800; flex-shrink: 0;
+      box-shadow: 0 0 0 6px rgba(108,99,255,.18);
+    }
+    .step-num.done { background: var(--clr-green); box-shadow: 0 0 0 6px rgba(6,214,160,.15); }
+    .step-title { font-size: 1.5rem; font-weight: 700; margin-bottom: .25rem; }
+    .step-title .badge-done {
+      display: inline-flex; align-items: center; gap: .3rem;
+      background: rgba(6,214,160,.15); border: 1px solid rgba(6,214,160,.3);
+      color: var(--clr-green); font-size: .7rem; font-weight: 600;
+      padding: .15rem .6rem; border-radius: 50px; margin-left: .6rem; vertical-align: middle;
+    }
+    .step-title .badge-next {
+      display: inline-flex; align-items: center; gap: .3rem;
+      background: rgba(255,183,3,.15); border: 1px solid rgba(255,183,3,.35);
+      color: var(--clr-orange); font-size: .7rem; font-weight: 600;
+      padding: .15rem .6rem; border-radius: 50px; margin-left: .6rem; vertical-align: middle;
+    }
+    .step-subtitle { color: var(--clr-muted); font-size: .95rem; }
+
+    /* ── UI Mockups ── */
+    .mockup-browser {
+      background: var(--clr-dark-3); border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: var(--shadow-card);
+      border: 1px solid rgba(255,255,255,.07); margin: 1.5rem 0;
+    }
+    .mockup-browser .browser-bar {
+      background: #1a1a30; padding: .65rem 1rem;
+      display: flex; align-items: center; gap: .55rem;
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; }
+    .dot-y { background: #ffbd2e; }
+    .dot-g { background: #28c840; }
+    .browser-url {
+      flex: 1; background: var(--clr-dark-2);
+      border-radius: 6px; padding: .28rem .9rem;
+      font-size: .8rem; font-family: var(--font-code); color: var(--clr-muted);
+      margin-left: .5rem;
+    }
+    .browser-body { padding: 1.5rem; }
+
+    /* GitHub student pack mockup */
+    .gh-pack {
+      background: var(--clr-dark-2); border-radius: var(--radius); padding: 1.5rem;
+    }
+    .gh-pack-header {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;
+      padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .gh-logo { font-size: 1.8rem; }
+    .gh-pack-title { font-size: 1.2rem; font-weight: 700; }
+    .gh-pack-sub { font-size: .8rem; color: var(--clr-muted); }
+    .gh-pack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: .8rem; margin-bottom: 1.2rem; }
+    .gh-offer-card {
+      background: var(--clr-dark-3); border-radius: 10px; padding: .9rem;
+      text-align: center; border: 1px solid rgba(255,255,255,.07);
+    }
+    .gh-offer-card.highlight { border-color: var(--clr-primary); background: rgba(108,99,255,.1); }
+    .gh-offer-icon { font-size: 1.6rem; margin-bottom: .4rem; }
+    .gh-offer-name { font-size: .8rem; font-weight: 600; }
+    .gh-offer-val  { font-size: .7rem; color: var(--clr-green); font-weight: 700; margin-top: .2rem; }
+    .gh-btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--clr-primary); color: #fff;
+      padding: .6rem 1.4rem; border-radius: 8px; font-size: .9rem; font-weight: 600;
+      cursor: pointer; border: none; transition: .25s;
+    }
+    .gh-btn:hover { background: var(--clr-primary-d); }
+    .gh-btn.green { background: var(--clr-green); color: #001; }
+    .gh-btn.orange { background: var(--clr-orange); color: #001; }
+
+    /* Namecheap mockup */
+    .nc-bar {
+      background: #d42020; color: #fff; padding: .6rem 1.2rem;
+      display: flex; align-items: center; gap: 1rem; font-size: .85rem; font-weight: 700;
+    }
+    .nc-search-wrap { display: flex; gap: .6rem; flex-wrap: wrap; margin: 1rem 0; }
+    .nc-search-input {
+      flex: 1; min-width: 220px;
+      background: var(--clr-dark-2); border: 1.5px solid rgba(255,255,255,.15);
+      border-radius: 8px; padding: .65rem 1rem;
+      color: var(--clr-text); font-family: var(--font-code); font-size: 1rem;
+    }
+    .nc-search-btn {
+      background: #d42020; color: #fff; border: none; border-radius: 8px;
+      padding: .65rem 1.3rem; font-size: .9rem; font-weight: 700; cursor: pointer;
+    }
+    .nc-result {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .8rem;
+      background: rgba(6,214,160,.06); border: 1.5px solid rgba(6,214,160,.3);
+      border-radius: 10px; padding: 1rem 1.2rem; margin: .8rem 0;
+    }
+    .nc-result-domain { font-size: 1.1rem; font-weight: 700; font-family: var(--font-code); }
+    .nc-result-domain span { color: var(--clr-accent); }
+    .nc-result-price .old { font-size: .8rem; color: var(--clr-muted); text-decoration: line-through; margin-bottom: .1rem; }
+    .nc-result-price .new { font-size: 1.4rem; font-weight: 800; color: var(--clr-green); }
+    .nc-result-price .new small { font-size: .7rem; font-weight: 400; color: var(--clr-muted); }
+    .nc-add-btn {
+      background: var(--clr-green); color: #001; border: none; border-radius: 8px;
+      padding: .6rem 1.3rem; font-size: .9rem; font-weight: 700; cursor: pointer;
+    }
+    .nc-cart {
+      background: var(--clr-dark-2); border-radius: 10px; padding: 1rem 1.2rem; margin-top: .8rem;
+    }
+    .nc-cart-row { display: flex; justify-content: space-between; padding: .4rem 0; font-size: .9rem; }
+    .nc-cart-row.total { font-size: 1.1rem; font-weight: 700; border-top: 1px solid rgba(255,255,255,.1); margin-top: .4rem; padding-top: .6rem; }
+    .nc-cart-row .price-free { color: var(--clr-green); font-weight: 800; font-size: 1.2rem; }
+
+    /* Firebase mockup */
+    .fb-sidebar {
+      background: var(--clr-dark-2); border-radius: var(--radius);
+      padding: .8rem; font-size: .8rem; min-width: 160px;
+    }
+    .fb-sidebar-title { font-size: .7rem; color: var(--clr-muted); text-transform: uppercase; letter-spacing: .07em; padding: .3rem .5rem; margin-bottom: .3rem; }
+    .fb-sidebar-item {
+      padding: .45rem .7rem; border-radius: 6px; cursor: pointer; color: var(--clr-text);
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .fb-sidebar-item.active { background: rgba(108,99,255,.2); color: var(--clr-primary); font-weight: 600; }
+    .fb-content { flex: 1; }
+    .fb-layout { display: flex; gap: 1rem; }
+    .fb-panel { background: var(--clr-dark-2); border-radius: var(--radius); padding: 1.2rem; margin-top: 1rem; }
+    .fb-panel h4 { font-size: 1rem; font-weight: 700; margin-bottom: .8rem; }
+    .fb-domain-row {
+      display: flex; align-items: center; gap: .8rem; flex-wrap: wrap;
+      background: var(--clr-dark-3); border-radius: 8px; padding: .8rem 1rem; margin-bottom: .6rem;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .fb-domain-row .domain { font-family: var(--font-code); font-size: .95rem; flex: 1; }
+    .fb-domain-row .status { font-size: .75rem; padding: .2rem .7rem; border-radius: 50px; font-weight: 600; }
+    .status-connected { background: rgba(6,214,160,.15); color: var(--clr-green); border: 1px solid rgba(6,214,160,.3); }
+    .status-pending   { background: rgba(255,183,3,.12); color: var(--clr-orange); border: 1px solid rgba(255,183,3,.3); }
+    .fb-add-domain {
+      display: inline-flex; align-items: center; gap: .5rem;
+      border: 1.5px dashed rgba(108,99,255,.4); border-radius: 8px;
+      padding: .65rem 1.2rem; font-size: .85rem; color: var(--clr-primary); cursor: pointer;
+      transition: .25s; margin-top: .4rem;
+    }
+    .fb-add-domain:hover { background: rgba(108,99,255,.08); }
+
+    /* DNS table mockup */
+    .dns-table {
+      width: 100%; border-collapse: collapse;
+      font-size: .85rem; font-family: var(--font-code); margin: .5rem 0;
+    }
+    .dns-table th {
+      background: rgba(108,99,255,.15); color: var(--clr-primary);
+      padding: .5rem .8rem; text-align: left; font-size: .75rem; text-transform: uppercase; letter-spacing: .06em;
+    }
+    .dns-table td { padding: .55rem .8rem; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .dns-table tr:last-child td { border-bottom: none; }
+    .dns-table tr:hover td { background: rgba(255,255,255,.03); }
+    .dns-type { display: inline-block; padding: .15rem .55rem; border-radius: 5px; font-size: .75rem; font-weight: 700; }
+    .dns-type.txt   { background: rgba(76,201,240,.15); color: var(--clr-accent); }
+    .dns-type.a     { background: rgba(108,99,255,.15); color: var(--clr-primary); }
+    .dns-type.cname { background: rgba(247,37,133,.15); color: var(--clr-secondary); }
+
+    /* Callout boxes */
+    .callout {
+      border-radius: var(--radius); padding: 1rem 1.2rem; margin: 1.2rem 0;
+      display: flex; gap: .8rem; align-items: flex-start;
+      font-size: .9rem;
+    }
+    .callout i { font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem; }
+    .callout.info  { background: rgba(76,201,240,.08); border-left: 3px solid var(--clr-accent); }
+    .callout.info  i { color: var(--clr-accent); }
+    .callout.warn  { background: rgba(255,183,3,.08); border-left: 3px solid var(--clr-orange); }
+    .callout.warn  i { color: var(--clr-orange); }
+    .callout.success { background: rgba(6,214,160,.08); border-left: 3px solid var(--clr-green); }
+    .callout.success i { color: var(--clr-green); }
+
+    /* Ordered steps list */
+    .steps-list { counter-reset: step; list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+    .steps-list li {
+      counter-increment: step;
+      display: flex; gap: .85rem; align-items: flex-start;
+    }
+    .steps-list li::before {
+      content: counter(step);
+      min-width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(108,99,255,.2); color: var(--clr-primary);
+      font-size: .8rem; font-weight: 700; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .steps-list li span { font-size: .92rem; }
+    .steps-list li strong { color: var(--clr-text); }
+    .steps-list li code {
+      font-family: var(--font-code); font-size: .85rem;
+      background: rgba(108,99,255,.12); color: var(--clr-primary);
+      padding: .05rem .4rem; border-radius: 5px;
+    }
+
+    /* Click highlight */
+    .click-target {
+      display: inline-flex; align-items: center; gap: .3rem;
+      background: rgba(247,37,133,.12); border: 1px solid rgba(247,37,133,.3);
+      color: var(--clr-secondary); font-weight: 600; font-size: .85rem;
+      padding: .1rem .55rem; border-radius: 6px;
+    }
+
+    /* Timeline */
+    .timeline { display: flex; flex-direction: column; gap: 0; margin: 1rem 0; }
+    .tl-item { display: flex; gap: 1rem; }
+    .tl-line-wrap { display: flex; flex-direction: column; align-items: center; }
+    .tl-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--clr-primary); flex-shrink: 0; margin-top: .3rem; }
+    .tl-dot.done { background: var(--clr-green); }
+    .tl-vline { width: 2px; flex: 1; background: rgba(108,99,255,.25); min-height: 30px; }
+    .tl-item:last-child .tl-vline { display: none; }
+    .tl-body { padding-bottom: 1.2rem; }
+    .tl-time { font-size: .75rem; color: var(--clr-orange); font-weight: 600; margin-bottom: .15rem; }
+    .tl-desc { font-size: .9rem; }
+
+    /* Final success card */
+    .success-card {
+      background: linear-gradient(135deg, rgba(6,214,160,.12), rgba(108,99,255,.1));
+      border: 1.5px solid rgba(6,214,160,.3); border-radius: var(--radius-lg);
+      padding: 2.5rem; text-align: center; margin: 2rem 0;
+    }
+    .success-card .icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .success-card h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: .5rem; }
+    .success-card h3 span { color: var(--clr-green); }
+    .success-card p { color: var(--clr-muted); margin-bottom: 1.5rem; }
+    .live-url-box {
+      display: inline-block; background: var(--clr-dark-2);
+      border: 1.5px solid rgba(6,214,160,.4); border-radius: 10px;
+      padding: .65rem 1.6rem; font-family: var(--font-code); font-size: 1.05rem;
+      color: var(--clr-green); font-weight: 600;
+    }
+
+    /* Footer */
+    .guide-footer {
+      background: var(--clr-dark-2); border-top: 1px solid rgba(255,255,255,.06);
+      padding: 1.8rem 0; text-align: center; color: var(--clr-muted); font-size: .85rem;
+    }
+    .guide-footer a { color: var(--clr-primary); }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .progress-bar-wrap { gap: 0; }
+      .prog-step { min-width: 70px; }
+      .prog-line { min-width: 14px; }
+      .fb-layout { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Top Bar ── -->
+  <nav class="topbar">
+    <div class="container inner">
+      <span class="topbar-logo"><i class="fas fa-globe"></i> <span>Domain Setup Guide –</span> sahilbodke.xyz</span>
+      <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-badge"><i class="fas fa-graduation-cap"></i> GitHub Student Developer Pack</div>
+      <h1>Get Your <span>Free .xyz Domain</span><br>& Deploy to Firebase</h1>
+      <p>Visual step-by-step demo showing how to claim <strong>sahilbodke.xyz</strong> for free and connect it to your live Firebase site.</p>
+
+      <!-- Progress indicator -->
+      <div class="progress-bar-wrap">
+        <div class="prog-step">
+          <div class="prog-circle done"><i class="fas fa-check"></i></div>
+          <div class="prog-label">Firebase Setup</div>
+        </div>
+        <div class="prog-line"></div>
+        <div class="prog-step">
+          <div class="prog-circle done"><i class="fas fa-check"></i></div>
+          <div class="prog-label">Deploy Site</div>
+        </div>
+        <div class="prog-line"></div>
+        <div class="prog-step">
+          <div class="prog-circle done"><i class="fas fa-check"></i></div>
+          <div class="prog-label">GitHub Actions</div>
+        </div>
+        <div class="prog-line"></div>
+        <div class="prog-step">
+          <div class="prog-circle active">4</div>
+          <div class="prog-label">Custom Domain</div>
+        </div>
+        <div class="prog-line"></div>
+        <div class="prog-step">
+          <div class="prog-circle todo">5</div>
+          <div class="prog-label">Live! 🎉</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       STEP 1 — Already done
+  ══════════════════════════════════════ -->
+  <section class="guide-section" id="step1">
+    <div class="container">
+      <div class="step-header">
+        <div class="step-num done"><i class="fas fa-check"></i></div>
+        <div>
+          <div class="step-title">Firebase Hosting Connected
+            <span class="badge-done"><i class="fas fa-check-circle"></i> Done</span>
+          </div>
+          <div class="step-subtitle">You ran <code style="font-family:monospace;color:#6c63ff;background:rgba(108,99,255,.1);padding:.1rem .4rem;border-radius:4px">firebase deploy --only hosting</code> and your site is live at <strong>portfolio.web.app</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       STEP 2 — Already done
+  ══════════════════════════════════════ -->
+  <section class="guide-section" id="step2">
+    <div class="container">
+      <div class="step-header">
+        <div class="step-num done"><i class="fas fa-check"></i></div>
+        <div>
+          <div class="step-title">GitHub Actions CI/CD
+            <span class="badge-done"><i class="fas fa-check-circle"></i> Done</span>
+          </div>
+          <div class="step-subtitle"><code style="font-family:monospace;color:#6c63ff;background:rgba(108,99,255,.1);padding:.1rem .4rem;border-radius:4px">FIREBASE_SERVICE_ACCOUNT</code> secret added — every push to <strong>main</strong> auto-deploys 🚀</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       STEP 3 — GitHub Student Pack
+  ══════════════════════════════════════ -->
+  <section class="guide-section" id="step3">
+    <div class="container">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Claim Free Domain via GitHub Student Pack
+            <span class="badge-next"><i class="fas fa-bolt"></i> Do this first</span>
+          </div>
+          <div class="step-subtitle">Get <strong>sahilbodke.xyz free for 1 year</strong> through Namecheap — no credit card needed</div>
+        </div>
+      </div>
+
+      <!-- 3a – Enrol in pack -->
+      <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:1rem;color:var(--clr-accent)">
+        <i class="fas fa-id-card"></i>&nbsp; 3a — Enrol in GitHub Student Developer Pack
+      </h3>
+
+      <div class="mockup-browser">
+        <div class="browser-bar">
+          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+          <span class="browser-url">https://education.github.com/pack</span>
+        </div>
+        <div class="browser-body">
+          <div class="gh-pack">
+            <div class="gh-pack-header">
+              <span class="gh-logo">🎓</span>
+              <div>
+                <div class="gh-pack-title">GitHub Student Developer Pack</div>
+                <div class="gh-pack-sub">The best developer tools, free for students</div>
+              </div>
+            </div>
+            <div class="gh-pack-grid">
+              <div class="gh-offer-card highlight">
+                <div class="gh-offer-icon">🌐</div>
+                <div class="gh-offer-name">Namecheap</div>
+                <div class="gh-offer-val">1 free .xyz domain</div>
+              </div>
+              <div class="gh-offer-card">
+                <div class="gh-offer-icon">☁️</div>
+                <div class="gh-offer-name">DigitalOcean</div>
+                <div class="gh-offer-val">$200 credit</div>
+              </div>
+              <div class="gh-offer-card">
+                <div class="gh-offer-icon">🤖</div>
+                <div class="gh-offer-name">Copilot Pro</div>
+                <div class="gh-offer-val">Free access</div>
+              </div>
+              <div class="gh-offer-card">
+                <div class="gh-offer-icon">📦</div>
+                <div class="gh-offer-name">+ 100 more</div>
+                <div class="gh-offer-val">tools &amp; services</div>
+              </div>
+            </div>
+            <button class="gh-btn"><i class="fas fa-graduation-cap"></i> Get Student Benefits</button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="steps-list" style="margin-top:1.2rem">
+        <li><span>Go to <strong>education.github.com/pack</strong> and click <span class="click-target"><i class="fas fa-mouse-pointer"></i> Get Student Benefits</span></span></li>
+        <li><span>Sign in with your <strong>GitHub account</strong></span></li>
+        <li><span>Enter your <strong>college email</strong> (e.g. <code>yourname@college.edu</code>) <em>or</em> upload a photo of your <strong>student ID / enrollment letter</strong></span></li>
+        <li><span>Select your school from the dropdown and submit</span></li>
+        <li><span>Wait for the approval email — usually <strong>a few minutes to a few hours</strong> ✅</span></li>
+      </ul>
+
+      <div class="callout info" style="margin-top:1.2rem">
+        <i class="fas fa-info-circle"></i>
+        <div>If you already received the GitHub Student Pack approval email, skip to <strong>Step 3b</strong> below.</div>
+      </div>
+
+      <!-- 3b – Claim on Namecheap -->
+      <h3 style="font-size:1.05rem;font-weight:700;margin:2rem 0 1rem;color:var(--clr-accent)">
+        <i class="fas fa-tags"></i>&nbsp; 3b — Claim sahilbodke.xyz on Namecheap (FREE)
+      </h3>
+
+      <div class="mockup-browser">
+        <div class="browser-bar">
+          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+          <span class="browser-url">https://education.github.com/pack/offers → Namecheap → Get access</span>
+        </div>
+        <div class="browser-body">
+          <!-- Namecheap nav -->
+          <div class="nc-bar">
+            <span style="font-size:1.1rem">🐱</span> NAMECHEAP
+            <span style="margin-left:auto;font-size:.75rem;background:rgba(255,255,255,.15);padding:.2rem .7rem;border-radius:4px">GitHub Student Offer Applied ✓</span>
+          </div>
+          <div style="padding:1rem 0">
+            <div style="font-size:.85rem;color:var(--clr-muted);margin-bottom:.6rem">Search for your domain:</div>
+            <div class="nc-search-wrap">
+              <input class="nc-search-input" value="sahilbodke.xyz" readonly />
+              <button class="nc-search-btn"><i class="fas fa-search"></i> Search</button>
+            </div>
+
+            <!-- Result -->
+            <div class="nc-result">
+              <div class="nc-result-domain">sahilbodke<span>.xyz</span></div>
+              <div class="nc-result-price">
+                <div class="old">Was $1.16/yr</div>
+                <div class="new">$0.00 <small>/1st year</small></div>
+              </div>
+              <button class="nc-add-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+            </div>
+
+            <!-- Cart -->
+            <div class="nc-cart">
+              <div style="font-size:.8rem;font-weight:700;margin-bottom:.6rem;color:var(--clr-muted);text-transform:uppercase;letter-spacing:.05em">Order Summary</div>
+              <div class="nc-cart-row"><span>sahilbodke.xyz (1 year)</span><span>$1.16</span></div>
+              <div class="nc-cart-row"><span>GitHub Student Discount</span><span style="color:var(--clr-green)">- $1.16</span></div>
+              <div class="nc-cart-row total"><span>Total</span><span class="price-free">$0.00 🎉</span></div>
+              <div style="margin-top:1rem">
+                <button class="gh-btn green" style="width:100%;justify-content:center"><i class="fas fa-check"></i> Confirm Order — FREE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="steps-list" style="margin-top:1rem">
+        <li><span>Go to <strong>education.github.com/pack/offers</strong>, search for <strong>Namecheap</strong> and click <span class="click-target"><i class="fas fa-mouse-pointer"></i> Get access</span></span></li>
+        <li><span>You are redirected to Namecheap with the student offer applied automatically</span></li>
+        <li><span>In the search box type: <code>sahilbodke.xyz</code> and press Search</span></li>
+        <li><span>Click <span class="click-target"><i class="fas fa-cart-plus"></i> Add to Cart</span> — the price will show <strong>$0.00</strong></span></li>
+        <li><span>Proceed to checkout and confirm the order — create a Namecheap account if needed</span></li>
+        <li><span>You now own <strong>sahilbodke.xyz for 1 year at no cost</strong> ✅</span></li>
+      </ul>
+
+      <div class="callout success">
+        <i class="fas fa-check-circle"></i>
+        <div><strong>Domain registered!</strong> After confirming the order, sahilbodke.xyz appears in your Namecheap "Domain List". Renewal after 1 year costs only ~$1–2/yr.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       STEP 4 — Firebase Console
+  ══════════════════════════════════════ -->
+  <section class="guide-section" id="step4">
+    <div class="container">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-title">Add Domain in Firebase Console
+            <span class="badge-next"><i class="fas fa-bolt"></i> Do this second</span>
+          </div>
+          <div class="step-subtitle">Tell Firebase to serve your site at <strong>www.sahilbodke.xyz</strong> and get the DNS values you need</div>
+        </div>
+      </div>
+
+      <div class="mockup-browser">
+        <div class="browser-bar">
+          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+          <span class="browser-url">https://console.firebase.google.com/project/portfolio/hosting</span>
+        </div>
+        <div class="browser-body">
+          <div class="fb-layout">
+            <div class="fb-sidebar">
+              <div class="fb-sidebar-title">Build</div>
+              <div class="fb-sidebar-item"><i class="fas fa-database" style="font-size:.8rem"></i> Firestore</div>
+              <div class="fb-sidebar-item active"><i class="fas fa-server" style="font-size:.8rem"></i> Hosting</div>
+              <div class="fb-sidebar-item"><i class="fas fa-bolt" style="font-size:.8rem"></i> Functions</div>
+              <div class="fb-sidebar-item"><i class="fas fa-lock" style="font-size:.8rem"></i> Auth</div>
+            </div>
+            <div class="fb-content">
+              <div style="font-size:1.1rem;font-weight:700;margin-bottom:.4rem">Firebase Hosting</div>
+              <div style="font-size:.8rem;color:var(--clr-muted);margin-bottom:1rem">Domains connected to this site</div>
+
+              <div class="fb-panel">
+                <h4>Custom Domains</h4>
+                <div class="fb-domain-row">
+                  <span class="domain">portfolio.web.app</span>
+                  <span class="status status-connected">Connected</span>
+                </div>
+                <div class="fb-domain-row">
+                  <span class="domain">sahilbodke.xyz <span style="color:var(--clr-muted);font-size:.75rem">(add this)</span></span>
+                  <span class="status status-pending">Pending setup</span>
+                </div>
+                <div class="fb-domain-row">
+                  <span class="domain">www.sahilbodke.xyz <span style="color:var(--clr-muted);font-size:.75rem">(add this)</span></span>
+                  <span class="status status-pending">Pending setup</span>
+                </div>
+                <div class="fb-add-domain">
+                  <i class="fas fa-plus-circle"></i> Add custom domain
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="steps-list" style="margin-top:1.2rem">
+        <li><span>Open <strong>console.firebase.google.com</strong> → select <strong>portfolio</strong> project</span></li>
+        <li><span>Left sidebar → <span class="click-target"><i class="fas fa-server"></i> Build → Hosting</span></span></li>
+        <li><span>Click <span class="click-target"><i class="fas fa-plus-circle"></i> Add custom domain</span></span></li>
+        <li><span>Type <code>sahilbodke.xyz</code> → Continue. <strong>Repeat</strong> and also add <code>www.sahilbodke.xyz</code></span></li>
+        <li><span>Firebase shows you a <strong>TXT record</strong> (for ownership verification) and <strong>two A record IP addresses</strong> — copy these values, you need them in Step 5</span></li>
+      </ul>
+
+      <div class="callout warn">
+        <i class="fas fa-exclamation-triangle"></i>
+        <div>Do <strong>not</strong> close the Firebase dialog yet. Keep the TXT token and IP addresses visible — you will paste them into Namecheap in the next step.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       STEP 5 — Namecheap DNS
+  ══════════════════════════════════════ -->
+  <section class="guide-section" id="step5">
+    <div class="container">
+      <div class="step-header">
+        <div class="step-num">5</div>
+        <div>
+          <div class="step-title">Configure DNS in Namecheap</div>
+          <div class="step-subtitle">Add TXT, A records and CNAME in Namecheap Advanced DNS so the domain points to Firebase</div>
+        </div>
+      </div>
+
+      <div class="mockup-browser">
+        <div class="browser-bar">
+          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+          <span class="browser-url">namecheap.com → Domain List → Manage → Advanced DNS</span>
+        </div>
+        <div class="browser-body">
+          <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;flex-wrap:wrap">
+            <div style="font-size:.85rem;font-weight:700">sahilbodke.xyz</div>
+            <div style="font-size:.75rem;color:var(--clr-muted);margin-left:auto">Advanced DNS tab</div>
+          </div>
+
+          <!-- Table -->
+          <div style="overflow-x:auto">
+            <table class="dns-table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Host</th>
+                  <th>Value</th>
+                  <th>TTL</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="dns-type txt">TXT</span></td>
+                  <td>@</td>
+                  <td style="color:var(--clr-accent)">firebase=<em>&lt;token from Firebase&gt;</em></td>
+                  <td>Auto</td>
+                  <td style="color:var(--clr-green);font-size:.75rem">✓ Add first</td>
+                </tr>
+                <tr>
+                  <td><span class="dns-type a">A</span></td>
+                  <td>@</td>
+                  <td style="color:var(--clr-primary)"><em>&lt;IP 1 from Firebase Console&gt;</em></td>
+                  <td>Auto</td>
+                  <td style="color:var(--clr-muted);font-size:.75rem">after verify</td>
+                </tr>
+                <tr>
+                  <td><span class="dns-type a">A</span></td>
+                  <td>@</td>
+                  <td style="color:var(--clr-primary)"><em>&lt;IP 2 from Firebase Console&gt;</em></td>
+                  <td>Auto</td>
+                  <td style="color:var(--clr-muted);font-size:.75rem">after verify</td>
+                </tr>
+                <tr>
+                  <td><span class="dns-type cname">CNAME</span></td>
+                  <td>www</td>
+                  <td style="color:var(--clr-secondary)">portfolio.web.app.</td>
+                  <td>Auto</td>
+                  <td style="color:var(--clr-muted);font-size:.75rem">after verify</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:.8rem">
+            <button class="gh-btn" style="font-size:.8rem"><i class="fas fa-save"></i> Save all changes</button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="steps-list" style="margin-top:1.2rem">
+        <li><span>Log in to <strong>namecheap.com</strong> → <span class="click-target">Domain List</span> → click <span class="click-target">Manage</span> next to sahilbodke.xyz</span></li>
+        <li><span>Click the <span class="click-target">Advanced DNS</span> tab at the top</span></li>
+        <li><span><strong>Delete</strong> any existing default A or CNAME records Namecheap added (URL redirect / parking records) — they will conflict</span></li>
+        <li><span>Add a <strong>TXT</strong> record: Host = <code>@</code>, Value = the token shown in Firebase Console (starts with <code>firebase=</code>)</span></li>
+        <li><span>Go back to Firebase Console and click <span class="click-target">Verify</span> — wait a few minutes if it does not verify immediately</span></li>
+        <li><span>After verification, add <strong>two A records</strong>: Host = <code>@</code>, Values = the two IPs shown in Firebase Console</span></li>
+        <li><span>Add a <strong>CNAME record</strong>: Host = <code>www</code>, Value = <code>portfolio.web.app.</code> (include the trailing dot)</span></li>
+        <li><span>Click <span class="click-target"><i class="fas fa-save"></i> Save all changes</span></span></li>
+      </ul>
+
+      <div class="callout warn">
+        <i class="fas fa-exclamation-triangle"></i>
+        <div><strong>Important:</strong> Use the exact IP addresses shown in <em>your</em> Firebase Console — they differ per project. Do not copy IP addresses from tutorials or examples.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       STEP 6 — Wait for SSL
+  ══════════════════════════════════════ -->
+  <section class="guide-section" id="step6">
+    <div class="container">
+      <div class="step-header">
+        <div class="step-num">6</div>
+        <div>
+          <div class="step-title">Wait for DNS Propagation &amp; SSL</div>
+          <div class="step-subtitle">Firebase auto-issues a free SSL certificate once DNS has propagated globally</div>
+        </div>
+      </div>
+
+      <div class="timeline" style="margin:1.5rem 0">
+        <div class="tl-item">
+          <div class="tl-line-wrap"><div class="tl-dot done"></div><div class="tl-vline"></div></div>
+          <div class="tl-body">
+            <div class="tl-time">⚡ Instant – 30 minutes</div>
+            <div class="tl-desc">TXT record visible → Firebase verifies domain ownership</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-vline"></div></div>
+          <div class="tl-body">
+            <div class="tl-time">⏱ 15 minutes – 48 hours</div>
+            <div class="tl-desc">A records &amp; CNAME propagate globally across all DNS servers</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-vline"></div></div>
+          <div class="tl-body">
+            <div class="tl-time">🔒 Within 24 hours of propagation</div>
+            <div class="tl-desc">Firebase issues a free <strong>Let's Encrypt SSL certificate</strong> — HTTPS activated automatically</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-line-wrap"><div class="tl-dot"></div></div>
+          <div class="tl-body">
+            <div class="tl-time">🎉 Done!</div>
+            <div class="tl-desc"><strong>https://www.sahilbodke.xyz</strong> is live with a padlock ✅</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout info">
+        <i class="fas fa-info-circle"></i>
+        <div>Check DNS propagation globally at <strong><a href="https://dnschecker.org" target="_blank" rel="noopener" style="color:var(--clr-accent)">dnschecker.org</a></strong> — enter <code style="font-family:monospace;color:#6c63ff;background:rgba(108,99,255,.12);padding:.1rem .4rem;border-radius:4px">sahilbodke.xyz</code> and select the A record type to see progress country-by-country.</div>
+      </div>
+
+      <!-- Final success card -->
+      <div class="success-card">
+        <div class="icon">🌐</div>
+        <h3>Your site will be live at <span>www.sahilbodke.xyz</span></h3>
+        <p>Once DNS propagates and SSL is issued, anyone searching for you will land on your portfolio at this address instead of the temporary Firebase URL.</p>
+        <a href="https://www.sahilbodke.xyz" target="_blank" rel="noopener" class="live-url-box">
+          <i class="fas fa-lock" style="color:var(--clr-green);margin-right:.5rem"></i>https://www.sahilbodke.xyz
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       Quick Reference
+  ══════════════════════════════════════ -->
+  <section class="guide-section" id="reference">
+    <div class="container">
+      <div class="step-header">
+        <div class="step-num" style="background:var(--clr-dark-3);border:2px solid var(--clr-muted)">
+          <i class="fas fa-link" style="font-size:.85rem;color:var(--clr-muted)"></i>
+        </div>
+        <div>
+          <div class="step-title" style="font-size:1.2rem">Quick Reference Links</div>
+          <div class="step-subtitle">Open these in separate tabs while following the steps above</div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-top:.5rem">
+
+        <a href="https://education.github.com/pack" target="_blank" rel="noopener"
+           style="background:var(--clr-card);border:1px solid rgba(108,99,255,.2);border-radius:var(--radius);padding:1.1rem;display:flex;align-items:center;gap:.8rem;transition:.25s;"
+           onmouseover="this.style.borderColor='#6c63ff'" onmouseout="this.style.borderColor='rgba(108,99,255,.2)'">
+          <span style="font-size:1.4rem">🎓</span>
+          <div><div style="font-size:.85rem;font-weight:700">GitHub Student Pack</div><div style="font-size:.75rem;color:var(--clr-muted)">education.github.com/pack</div></div>
+        </a>
+
+        <a href="https://www.namecheap.com" target="_blank" rel="noopener"
+           style="background:var(--clr-card);border:1px solid rgba(212,32,32,.2);border-radius:var(--radius);padding:1.1rem;display:flex;align-items:center;gap:.8rem;transition:.25s;"
+           onmouseover="this.style.borderColor='#d42020'" onmouseout="this.style.borderColor='rgba(212,32,32,.2)'">
+          <span style="font-size:1.4rem">🐱</span>
+          <div><div style="font-size:.85rem;font-weight:700">Namecheap</div><div style="font-size:.75rem;color:var(--clr-muted)">namecheap.com – manage DNS</div></div>
+        </a>
+
+        <a href="https://console.firebase.google.com/" target="_blank" rel="noopener"
+           style="background:var(--clr-card);border:1px solid rgba(255,183,3,.2);border-radius:var(--radius);padding:1.1rem;display:flex;align-items:center;gap:.8rem;transition:.25s;"
+           onmouseover="this.style.borderColor='#ffb703'" onmouseout="this.style.borderColor='rgba(255,183,3,.2)'">
+          <span style="font-size:1.4rem">🔥</span>
+          <div><div style="font-size:.85rem;font-weight:700">Firebase Console</div><div style="font-size:.75rem;color:var(--clr-muted)">Build → Hosting → Domains</div></div>
+        </a>
+
+        <a href="https://dnschecker.org" target="_blank" rel="noopener"
+           style="background:var(--clr-card);border:1px solid rgba(76,201,240,.2);border-radius:var(--radius);padding:1.1rem;display:flex;align-items:center;gap:.8rem;transition:.25s;"
+           onmouseover="this.style.borderColor='#4cc9f0'" onmouseout="this.style.borderColor='rgba(76,201,240,.2)'">
+          <span style="font-size:1.4rem">🌍</span>
+          <div><div style="font-size:.85rem;font-weight:700">DNS Checker</div><div style="font-size:.75rem;color:var(--clr-muted)">Check global propagation</div></div>
+        </a>
+
+        <a href="https://github.com/SB110604/SB110604/actions" target="_blank" rel="noopener"
+           style="background:var(--clr-card);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:1.1rem;display:flex;align-items:center;gap:.8rem;transition:.25s;"
+           onmouseover="this.style.borderColor='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,.1)'">
+          <span style="font-size:1.4rem">⚙️</span>
+          <div><div style="font-size:.85rem;font-weight:700">GitHub Actions</div><div style="font-size:.75rem;color:var(--clr-muted)">Monitor deploys</div></div>
+        </a>
+
+        <a href="index.html"
+           style="background:var(--clr-card);border:1px solid rgba(6,214,160,.2);border-radius:var(--radius);padding:1.1rem;display:flex;align-items:center;gap:.8rem;transition:.25s;"
+           onmouseover="this.style.borderColor='#06d6a0'" onmouseout="this.style.borderColor='rgba(6,214,160,.2)'">
+          <span style="font-size:1.4rem">👤</span>
+          <div><div style="font-size:.85rem;font-weight:700">Your Portfolio</div><div style="font-size:.75rem;color:var(--clr-muted)">sahilbodke.xyz (once live)</div></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="guide-footer">
+    <div class="container">
+      <p>Made for <a href="index.html">Sahil Bodke</a> · Firebase Hosting + GitHub Student Developer Pack</p>
+    </div>
+  </footer>
+
+</body>
+</html>
