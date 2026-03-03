@@ -1,204 +1,189 @@
 # Deployment Guide – Er. Sahil Bodke Portfolio
 
-This document contains step-by-step instructions for deploying the portfolio website to **Google Firebase Hosting** and connecting the custom domain **www.er.sahilbodke.com**.
+This document explains how the portfolio is deployed to **Google Firebase Hosting** and how to connect a custom domain.
+
+> ✅ **Firebase already connected** – you have already run `firebase init hosting` and set the public directory to `public`. The steps below pick up from there.
 
 ---
 
-## Prerequisites
+## Folder Structure
 
-- Node.js 18+ installed
-- A Google account
-- A registered domain (e.g., from GoDaddy, Namecheap, Google Domains)
-- Git installed
-
----
-
-## Step 1 – Create a Firebase Project
-
-1. Go to [https://console.firebase.google.com/](https://console.firebase.google.com/)
-2. Click **Add Project**
-3. Enter project name: `sahil-bodke-portfolio`
-4. (Optional) Disable Google Analytics for a simple static site
-5. Click **Create Project** and wait for it to be ready
-6. Select the free **Spark** plan (sufficient for a portfolio site)
-
----
-
-## Step 2 – Install the Firebase CLI
-
-```bash
-# Install globally
-npm install -g firebase-tools
-
-# Log in to your Google account
-firebase login
-
-# Verify the CLI is working
-firebase --version
+```
+SB110604/                  ← GitHub repository root
+├── public/                ← Firebase public directory (all site files live here)
+│   ├── index.html
+│   ├── css/styles.css
+│   ├── js/script.js
+│   └── assets/
+│       ├── resume.pdf
+│       └── images/profile.jpg
+├── firebase.json          ← Firebase Hosting config
+├── .firebaserc            ← Firebase project alias ("portfolio")
+└── .github/workflows/
+    └── firebase-deploy.yml
 ```
 
 ---
 
-## Step 3 – Initialise Firebase Hosting (first-time setup)
+## Step 1 – Verify Local Firebase Setup
 
-> **Skip this step if you are using the pre-configured `firebase.json` and `.firebaserc` files already in the repository.**
+Make sure your local `firebase.json` points to `public`:
 
-```bash
-cd /path/to/SB110604
-
-# Initialise hosting (follow the prompts)
-firebase init hosting
+```json
+{
+  "hosting": {
+    "public": "public",
+    ...
+  }
+}
 ```
 
-When prompted:
-- **Which Firebase project?** → Select `sahil-bodke-portfolio`
-- **Public directory?** → `.` (current directory / repo root)
-- **Configure as single-page app?** → `Yes`
-- **Overwrite `index.html`?** → `No`
+And `.firebaserc` uses your project:
+
+```json
+{
+  "projects": {
+    "default": "portfolio"
+  }
+}
+```
 
 ---
 
-## Step 4 – Deploy to Firebase
+## Step 2 – Deploy Manually from PowerShell / Terminal
 
-```bash
-firebase deploy
+```powershell
+# Navigate to the repo root (where firebase.json lives)
+cd C:\path\to\SB110604
+
+# Deploy to Firebase Hosting
+firebase deploy --only hosting
 ```
 
-After a successful deployment you will see:
+After a successful deploy you will see:
 
 ```
 ✔  Deploy complete!
 
-Project Console: https://console.firebase.google.com/project/sahil-bodke-portfolio/overview
-Hosting URL:     https://sahil-bodke-portfolio.web.app
+Project Console: https://console.firebase.google.com/project/portfolio/overview
+Hosting URL:     https://portfolio.web.app
 ```
 
 ---
 
-## Step 5 – Connect Custom Domain (www.er.sahilbodke.com)
+## Step 3 – Set Up GitHub Actions (Automatic Deployment)
 
-### 5.1 Add the domain in Firebase Console
+Every push to `main` or `master` will automatically re-deploy the site.
+
+### 3.1 Generate a Firebase Service Account key
 
 1. Open [Firebase Console](https://console.firebase.google.com/)
-2. Select project **sahil-bodke-portfolio**
-3. In the left sidebar go to **Build → Hosting**
-4. Click **Add custom domain**
-5. Enter: `www.er.sahilbodke.com`
-6. Click **Continue**
+2. Select your **portfolio** project
+3. Click the ⚙ gear icon → **Project Settings**
+4. Go to the **Service accounts** tab
+5. Click **Generate new private key** → **Generate key**
+6. A JSON file is downloaded — keep it safe, **do not commit it**
 
-### 5.2 Verify domain ownership
+### 3.2 Add the secret to GitHub
 
-Firebase will show a **TXT record** for verification. Add it to your DNS registrar:
-
-| Type | Name / Host | Value                |
-|------|-------------|----------------------|
-| TXT  | `@`         | `firebase=<token>`   |
-
-Wait a few minutes, then click **Verify** in the Firebase Console.
-
-### 5.3 Point DNS to Firebase
-
-After verification, Firebase provides **A records** (two IP addresses). Add them to your DNS registrar:
-
-| Type | Name / Host | Value (example)    |
-|------|-------------|-------------------|
-| A    | `@`         | `151.101.1.195`   |
-| A    | `@`         | `151.101.65.195`  |
-
-For the `www` subdomain, add a **CNAME**:
-
-| Type  | Name  | Value                            |
-|-------|-------|----------------------------------|
-| CNAME | `www` | `sahil-bodke-portfolio.web.app.` |
-
-> **Note:** The exact IP addresses are provided by Firebase. Use the values shown in the Firebase Console — do not copy the examples above.
-
-### 5.4 Wait for SSL provisioning
-
-- DNS propagation typically takes **15 minutes to 48 hours**
-- Firebase automatically provisions a free **SSL certificate** (Let's Encrypt)
-- Once active, your site will be available at `https://www.er.sahilbodke.com`
-
----
-
-## Step 6 – Set Up GitHub Actions for Automatic Deployment
-
-Every push to the `main` branch will automatically deploy to Firebase Hosting.
-
-### 6.1 Generate a Firebase Service Account key
-
-1. In [Firebase Console](https://console.firebase.google.com/), open project settings (⚙ gear icon)
-2. Go to **Service accounts** tab
-3. Click **Generate new private key** → **Generate key**
-4. Save the downloaded JSON file securely (do not commit it to the repo)
-
-### 6.2 Add the secret to GitHub
-
-1. In your GitHub repository, go to **Settings → Secrets and variables → Actions**
+1. In your GitHub repo, go to **Settings → Secrets and variables → Actions**
 2. Click **New repository secret**
-3. Name: `FIREBASE_SERVICE_ACCOUNT`
-4. Value: paste the entire JSON content of the key file
+3. **Name:** `FIREBASE_SERVICE_ACCOUNT`
+4. **Value:** paste the entire contents of the downloaded JSON key file
 5. Click **Add secret**
 
-### 6.3 Push to main
-
-The workflow (`.github/workflows/firebase-deploy.yml`) will trigger automatically:
+### 3.3 Merge / push to main
 
 ```bash
 git add .
-git commit -m "Deploy portfolio"
+git commit -m "Update portfolio"
 git push origin main
 ```
 
-Monitor the workflow under the **Actions** tab in GitHub.
+The workflow (`.github/workflows/firebase-deploy.yml`) will trigger and deploy automatically. Monitor progress under the **Actions** tab in GitHub.
 
 ---
 
-## Step 7 – Add Your Resume
+## Step 4 – Connect a Custom Domain
 
-Replace the placeholder resume with your real CV:
+### 4.1 Add the domain in Firebase Console
 
-```bash
-# Copy your resume to the assets folder
-cp /path/to/your/resume.pdf assets/resume.pdf
+1. Open [Firebase Console](https://console.firebase.google.com/)
+2. Select project **portfolio**
+3. Left sidebar → **Build → Hosting**
+4. Click **Add custom domain**
+5. Enter your domain, e.g. `www.er.sahilbodke.com`
+6. Click **Continue**
 
-git add assets/resume.pdf
-git commit -m "Add resume"
+### 4.2 Verify domain ownership
+
+Firebase shows a **TXT record**. Add it at your DNS registrar (GoDaddy, Namecheap, etc.):
+
+| Type | Name / Host | Value             |
+|------|-------------|-------------------|
+| TXT  | `@`         | `firebase=<token>` (provided by Firebase) |
+
+Click **Verify** in Firebase Console after a few minutes.
+
+### 4.3 Point DNS to Firebase
+
+Firebase then provides **A records**. Add them at your registrar:
+
+| Type  | Name  | Value                                     |
+|-------|-------|-------------------------------------------|
+| A     | `@`   | (IP address 1 shown in Firebase Console)  |
+| A     | `@`   | (IP address 2 shown in Firebase Console)  |
+| CNAME | `www` | `portfolio.web.app.`                      |
+
+> ⚠️ Use the exact IPs shown in **your** Firebase Console — do not copy examples.
+
+### 4.4 Wait for SSL
+
+- DNS propagation: **15 min – 48 hours**
+- Firebase auto-provisions a free SSL certificate (Let's Encrypt)
+- Site goes live at `https://www.er.sahilbodke.com` ✅
+
+---
+
+## Step 5 – Add Your Real Resume
+
+```powershell
+# Replace the placeholder
+Copy-Item "C:\path\to\your\resume.pdf" "public\assets\resume.pdf"
+
+git add public/assets/resume.pdf
+git commit -m "Add real resume"
 git push
 ```
 
 ---
 
-## Step 8 – Update Content
+## Step 6 – Update Site Content
 
-All placeholder content is in `index.html`. Search for the following comments/placeholders and replace them:
+All content is in `public/index.html`. Key placeholders:
 
-| Item                | Where                     |
-|---------------------|---------------------------|
-| Profile photo       | `assets/images/profile.jpg` |
-| LinkedIn URL        | Search `linkedin.com/in/SahilBodke` |
-| GitHub URL          | Search `github.com/SB110604` |
-| Email               | Search `sahilbodke51@gmail.com` |
-| Project descriptions | `#projects` section in `index.html` |
-| Bio text            | `#about` section in `index.html` |
+| What to update      | Search for                          |
+|---------------------|-------------------------------------|
+| Profile photo       | Replace `public/assets/images/profile.jpg` |
+| LinkedIn URL        | `linkedin.com/in/SahilBodke`        |
+| GitHub URL          | `github.com/SB110604`               |
+| Email               | `sahilbodke51@gmail.com`            |
+| Projects section    | `id="projects"` in index.html       |
+| About / bio         | `id="about"` in index.html          |
+| Colour scheme       | CSS variables at top of `public/css/styles.css` |
 
 ---
 
 ## Troubleshooting
 
-### "Permission denied" during `firebase deploy`
-Run `firebase login` again to refresh your credentials.
-
-### DNS not propagating
-Use [https://dnschecker.org](https://dnschecker.org) to verify your DNS records globally.
-
-### SSL certificate not issued
-Ensure the A records and CNAME point to the correct Firebase IPs. Wait up to 24 hours after DNS is fully propagated.
-
-### GitHub Actions failing
-1. Check the **Actions** tab for error logs
-2. Confirm the `FIREBASE_SERVICE_ACCOUNT` secret is correctly set
-3. Ensure the `projectId` in `.github/workflows/firebase-deploy.yml` matches your Firebase project ID
+| Problem | Fix |
+|---------|-----|
+| `firebase: command not found` | Run `npm install -g firebase-tools` |
+| `Error: Permission denied` | Run `firebase login` again |
+| `Project not found` | Check `.firebaserc` — project ID must match Firebase Console |
+| DNS not propagating | Use [dnschecker.org](https://dnschecker.org) to check globally |
+| SSL certificate pending | Wait up to 24 h after DNS fully propagates |
+| GitHub Actions failing | Check Actions tab logs; confirm `FIREBASE_SERVICE_ACCOUNT` secret is set |
 
 ---
 
@@ -208,3 +193,5 @@ Ensure the A records and CNAME point to the correct Firebase IPs. Wait up to 24 
 - [Firebase CLI reference](https://firebase.google.com/docs/cli)
 - [Custom domain setup](https://firebase.google.com/docs/hosting/custom-domain)
 - [GitHub Actions for Firebase](https://github.com/FirebaseExtended/action-hosting-deploy)
+- [Free domain options (Freenom)](https://www.freenom.com)
+- [Buy a domain (Namecheap)](https://www.namecheap.com)

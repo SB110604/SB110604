@@ -1,7 +1,7 @@
 # Er. Sahil Bodke – Portfolio Website
 
 [![Deploy to Firebase](https://github.com/SB110604/SB110604/actions/workflows/firebase-deploy.yml/badge.svg)](https://github.com/SB110604/SB110604/actions/workflows/firebase-deploy.yml)
-[![Firebase Hosting](https://img.shields.io/badge/Hosted%20on-Firebase-FFCA28?logo=firebase&logoColor=white)](https://sahil-bodke-portfolio.web.app)
+[![Firebase Hosting](https://img.shields.io/badge/Hosted%20on-Firebase-FFCA28?logo=firebase&logoColor=white)](https://portfolio.web.app)
 
 A modern, responsive portfolio website for **Er. Sahil Bodke** — Computer Science Engineer specialising in AI, ML, Data Science and Cloud Computing.
 
@@ -29,20 +29,21 @@ A modern, responsive portfolio website for **Er. Sahil Bodke** — Computer Scie
 
 ```
 SB110604/
-├── index.html                          # Main portfolio page
-├── css/
-│   └── styles.css                      # Complete responsive stylesheet
-├── js/
-│   └── script.js                       # Interactivity & animations
-├── assets/
-│   ├── resume.pdf                      # Your CV (add your own)
-│   └── images/
-│       └── profile.jpg                 # Profile photo (add your own)
+├── public/                             # ← Firebase public directory
+│   ├── index.html                      # Main portfolio page
+│   ├── css/
+│   │   └── styles.css                  # Complete responsive stylesheet
+│   ├── js/
+│   │   └── script.js                   # Interactivity & animations
+│   └── assets/
+│       ├── resume.pdf                  # Your CV (replace with your own)
+│       └── images/
+│           └── profile.jpg             # Profile photo (replace with your own)
 ├── firebase.json                       # Firebase Hosting configuration
-├── .firebaserc                         # Firebase project alias
+├── .firebaserc                         # Firebase project alias ("portfolio")
 ├── .github/
 │   └── workflows/
-│       └── firebase-deploy.yml         # Auto-deploy on push to main
+│       └── firebase-deploy.yml         # Auto-deploy on push to main/master
 ├── DEPLOYMENT.md                       # Step-by-step deployment guide
 └── README.md                           # This file
 ```
@@ -58,10 +59,10 @@ No build step needed — it's pure HTML/CSS/JS.
 git clone https://github.com/SB110604/SB110604.git
 cd SB110604
 
-# Serve locally (any static server works)
-npx serve .
+# Serve the public/ folder locally (any static server works)
+npx serve public
 # or
-python -m http.server 8000
+python -m http.server 8000 --directory public
 # then open http://localhost:8000
 ```
 
@@ -69,18 +70,18 @@ python -m http.server 8000
 
 ## 🔧 Customising Content
 
-All content lives in `index.html`. Key things to update:
+All content lives in `public/index.html`. Key things to update:
 
 | Item | Location |
 |------|----------|
-| Profile photo | Replace `assets/images/profile.jpg` |
-| Resume | Replace `assets/resume.pdf` |
+| Profile photo | Replace `public/assets/images/profile.jpg` |
+| Resume | Replace `public/assets/resume.pdf` |
 | Bio text | `#about` section |
 | Projects | `#projects` section |
 | LinkedIn URL | Search `linkedin.com/in/SahilBodke` |
 | GitHub URL | Search `github.com/SB110604` |
 | Email | Search `sahilbodke51@gmail.com` |
-| Colour scheme | CSS variables at the top of `css/styles.css` |
+| Colour scheme | CSS variables at the top of `public/css/styles.css` |
 
 ---
 
@@ -88,19 +89,16 @@ All content lives in `index.html`. Key things to update:
 
 See **[DEPLOYMENT.md](DEPLOYMENT.md)** for the full step-by-step guide covering:
 
-1. Creating a Firebase project
-2. Installing the Firebase CLI
-3. Deploying manually (`firebase deploy`)
-4. Connecting the custom domain (`www.er.sahilbodke.com`)
-5. Setting up GitHub Actions for automatic deployment
-6. Adding your real resume
+1. ✅ Firebase already connected (you did this!)
+2. Deploying manually (`firebase deploy --only hosting`)
+3. Connecting the custom domain (`www.er.sahilbodke.com`)
+4. Setting up GitHub Actions for automatic deployment on every push
+5. Adding your real resume and profile photo
 
-### Quick deploy
+### Quick deploy (from repo root)
 
-```bash
-npm install -g firebase-tools
-firebase login
-firebase deploy
+```powershell
+firebase deploy --only hosting
 ```
 
 ---

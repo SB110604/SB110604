@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": ".",
+    "public": "public",
     "ignore": [
       "firebase.json",
       ".firebaserc",
@@ -8,7 +8,6 @@
       ".github/**",
       "BE_project_final/**",
       "node_modules/**",
-      "*.md",
       "*.log"
     ],
     "rewrites": [
