@@ -5,7 +5,7 @@
 
 A modern, responsive portfolio website for **Er. Sahil Bodke** — Computer Science Engineer specialising in AI, ML, Data Science and Cloud Computing.
 
-🌐 **Live site:** [https://www.er.sahilbodke.com](https://www.er.sahilbodke.com)
+🌐 **Live site:** [https://www.sahilbodke.xyz](https://www.sahilbodke.xyz)
 
 ---
 

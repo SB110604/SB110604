@@ -1,8 +1,10 @@
-# Deployment Guide – Er. Sahil Bodke Portfolio
+# Deployment Guide – Sahil Bodke Portfolio
 
-This document explains how the portfolio is deployed to **Google Firebase Hosting** and how to connect a custom domain.
-
-> ✅ **Firebase already connected** – you have already run `firebase init hosting` and set the public directory to `public`. The steps below pick up from there.
+> **Your progress so far:**
+> - ✅ Step 1 – Firebase project created and CLI connected (PowerShell)
+> - ✅ Step 2 – `firebase deploy --only hosting` ran successfully
+> - ✅ Step 3 – GitHub Actions CI/CD set up (`FIREBASE_SERVICE_ACCOUNT` secret added)
+> - ⏳ Step 4 – Custom domain `www.sahilbodke.xyz` — **do this next** (see below)
 
 ---
 
@@ -10,167 +12,175 @@ This document explains how the portfolio is deployed to **Google Firebase Hostin
 
 ```
 SB110604/                  ← GitHub repository root
-├── public/                ← Firebase public directory (all site files live here)
+├── public/                ← Firebase public directory
 │   ├── index.html
 │   ├── css/styles.css
 │   ├── js/script.js
 │   └── assets/
 │       ├── resume.pdf
 │       └── images/profile.jpg
-├── firebase.json          ← Firebase Hosting config
-├── .firebaserc            ← Firebase project alias ("portfolio")
+├── firebase.json
+├── .firebaserc            ← project alias: "portfolio"
 └── .github/workflows/
     └── firebase-deploy.yml
 ```
 
 ---
 
-## Step 1 – Verify Local Firebase Setup
+## Step 4 – Get a FREE `.xyz` Domain via GitHub Student Developer Pack
 
-Make sure your local `firebase.json` points to `public`:
+The GitHub Student Developer Pack gives you **1 free `.xyz` domain for 1 year** through Namecheap. Here is the exact process:
 
-```json
-{
-  "hosting": {
-    "public": "public",
-    ...
-  }
-}
-```
+### 4.0 – Apply for GitHub Student Developer Pack (if not already done)
 
-And `.firebaserc` uses your project:
+1. Go to **[https://education.github.com/pack](https://education.github.com/pack)**
+2. Click **"Get student benefits"**
+3. Sign in with your GitHub account
+4. Fill in the form:
+   - **School email** (e.g. your college `.edu` address) **or** upload a photo of your student ID / enrollment letter
+   - Select your school name
+5. Submit and wait for approval (usually **minutes to a few hours**)
+6. You will receive an email from GitHub confirming you have the pack ✅
 
-```json
-{
-  "projects": {
-    "default": "portfolio"
-  }
-}
-```
+> If you already have the pack approved, skip to **4.1** below.
 
 ---
 
-## Step 2 – Deploy Manually from PowerShell / Terminal
+### 4.1 – Claim Your Free `.xyz` Domain on Namecheap
+
+1. Visit **[https://education.github.com/pack/offers](https://education.github.com/pack/offers)**
+2. Search for **"Namecheap"** and click **"Get access"** (you must be signed in to GitHub)
+3. You will be redirected to Namecheap with a special link
+4. In the Namecheap search bar, type: `sahilbodke.xyz`
+5. If it is available, click **"Add to cart"**
+6. At checkout the price will show as **$0.00** (free for 1 year) ✅
+7. Complete the order — create a Namecheap account if you don't have one
+8. You now own **sahilbodke.xyz** for 1 year at no cost 🎉
+
+> **Note:** The free `.xyz` offer gives you the domain for 1 year. After that, renewal costs ~$1–2/year. There are no hidden fees.
+
+---
+
+### 4.2 – Add the Domain to Firebase Hosting
+
+1. Open **[https://console.firebase.google.com/](https://console.firebase.google.com/)**
+2. Select your **portfolio** project
+3. In the left sidebar: **Build → Hosting**
+4. Click **"Add custom domain"**
+5. Enter: `sahilbodke.xyz` → click **Continue**
+6. Repeat the same steps and also add: `www.sahilbodke.xyz` → click **Continue**
+
+Firebase will show you:
+- A **TXT record** to prove domain ownership
+- **A records** (two IP addresses) to point the domain at Firebase
+
+Copy these values — you will need them in Step 4.3.
+
+---
+
+### 4.3 – Configure DNS on Namecheap
+
+1. Log in to **[https://www.namecheap.com](https://www.namecheap.com)**
+2. Click **Domain List** in the left sidebar
+3. Click **Manage** next to `sahilbodke.xyz`
+4. Click the **"Advanced DNS"** tab
+
+Add the following records (exact values come from your Firebase Console):
+
+#### Verification TXT record (add first, then click Verify in Firebase)
+
+| Type | Host | Value                          | TTL        |
+|------|------|--------------------------------|------------|
+| TXT  | `@`  | `firebase=XXXXXXXXXXXXXXXXXXXX` | Automatic  |
+
+> Replace `XXXXXXXXXXXXXXXXXXXX` with the token Firebase shows you.
+
+#### A records (point the root domain to Firebase)
+
+| Type | Host | Value           | TTL       |
+|------|------|-----------------|-----------|
+| A    | `@`  | `151.101.1.195` | Automatic |
+| A    | `@`  | `151.101.65.195`| Automatic |
+
+> ⚠️ **Use the exact IP addresses shown in your Firebase Console** — do not copy the examples above. Firebase assigns different IPs per project.
+
+#### CNAME record (point `www` subdomain to Firebase)
+
+| Type  | Host  | Value                  | TTL       |
+|-------|-------|------------------------|-----------|
+| CNAME | `www` | `portfolio.web.app.`   | Automatic |
+
+> Make sure to include the trailing dot after `portfolio.web.app.`
+
+5. Click **Save all changes** in Namecheap
+
+---
+
+### 4.4 – Verify and Wait for SSL
+
+1. Go back to **Firebase Console → Build → Hosting**
+2. Click **Verify** next to `sahilbodke.xyz` (after adding the TXT record)
+3. Once verified, Firebase will start provisioning a free **SSL certificate**
+
+| What to expect | Timeline |
+|----------------|----------|
+| TXT verification | Instant – 30 min |
+| DNS propagation | 15 min – 48 hours |
+| SSL certificate issued | Within 24 hours of DNS propagating |
+
+4. Once complete, your site will be live at:
+   - **https://www.sahilbodke.xyz** ✅
+   - **https://sahilbodke.xyz** ✅ (redirects to www)
+
+Check DNS propagation globally at **[https://dnschecker.org](https://dnschecker.org)** — enter `sahilbodke.xyz` and check the A record.
+
+---
+
+## Step 5 – Add Your Real Resume & Profile Photo
 
 ```powershell
-# Navigate to the repo root (where firebase.json lives)
-cd C:\path\to\SB110604
+# Replace placeholder resume
+Copy-Item "C:\path\to\your\resume.pdf" "public\assets\resume.pdf"
 
-# Deploy to Firebase Hosting
-firebase deploy --only hosting
-```
+# Replace placeholder photo (must be a square JPG, ideally 400×400px or larger)
+Copy-Item "C:\path\to\your\photo.jpg" "public\assets\images\profile.jpg"
 
-After a successful deploy you will see:
-
-```
-✔  Deploy complete!
-
-Project Console: https://console.firebase.google.com/project/portfolio/overview
-Hosting URL:     https://portfolio.web.app
-```
-
----
-
-## Step 3 – Set Up GitHub Actions (Automatic Deployment)
-
-Every push to `main` or `master` will automatically re-deploy the site.
-
-### 3.1 Generate a Firebase Service Account key
-
-1. Open [Firebase Console](https://console.firebase.google.com/)
-2. Select your **portfolio** project
-3. Click the ⚙ gear icon → **Project Settings**
-4. Go to the **Service accounts** tab
-5. Click **Generate new private key** → **Generate key**
-6. A JSON file is downloaded — keep it safe, **do not commit it**
-
-### 3.2 Add the secret to GitHub
-
-1. In your GitHub repo, go to **Settings → Secrets and variables → Actions**
-2. Click **New repository secret**
-3. **Name:** `FIREBASE_SERVICE_ACCOUNT`
-4. **Value:** paste the entire contents of the downloaded JSON key file
-5. Click **Add secret**
-
-### 3.3 Merge / push to main
-
-```bash
-git add .
-git commit -m "Update portfolio"
+git add public/assets/
+git commit -m "Add real resume and profile photo"
 git push origin main
 ```
 
-The workflow (`.github/workflows/firebase-deploy.yml`) will trigger and deploy automatically. Monitor progress under the **Actions** tab in GitHub.
-
----
-
-## Step 4 – Connect a Custom Domain
-
-### 4.1 Add the domain in Firebase Console
-
-1. Open [Firebase Console](https://console.firebase.google.com/)
-2. Select project **portfolio**
-3. Left sidebar → **Build → Hosting**
-4. Click **Add custom domain**
-5. Enter your domain, e.g. `www.er.sahilbodke.com`
-6. Click **Continue**
-
-### 4.2 Verify domain ownership
-
-Firebase shows a **TXT record**. Add it at your DNS registrar (GoDaddy, Namecheap, etc.):
-
-| Type | Name / Host | Value             |
-|------|-------------|-------------------|
-| TXT  | `@`         | `firebase=<token>` (provided by Firebase) |
-
-Click **Verify** in Firebase Console after a few minutes.
-
-### 4.3 Point DNS to Firebase
-
-Firebase then provides **A records**. Add them at your registrar:
-
-| Type  | Name  | Value                                     |
-|-------|-------|-------------------------------------------|
-| A     | `@`   | (IP address 1 shown in Firebase Console)  |
-| A     | `@`   | (IP address 2 shown in Firebase Console)  |
-| CNAME | `www` | `portfolio.web.app.`                      |
-
-> ⚠️ Use the exact IPs shown in **your** Firebase Console — do not copy examples.
-
-### 4.4 Wait for SSL
-
-- DNS propagation: **15 min – 48 hours**
-- Firebase auto-provisions a free SSL certificate (Let's Encrypt)
-- Site goes live at `https://www.er.sahilbodke.com` ✅
-
----
-
-## Step 5 – Add Your Real Resume
-
-```powershell
-# Replace the placeholder
-Copy-Item "C:\path\to\your\resume.pdf" "public\assets\resume.pdf"
-
-git add public/assets/resume.pdf
-git commit -m "Add real resume"
-git push
-```
+The GitHub Actions workflow will auto-deploy within ~1 minute.
 
 ---
 
 ## Step 6 – Update Site Content
 
-All content is in `public/index.html`. Key placeholders:
+All content is in `public/index.html`. Key placeholders to personalise:
 
-| What to update      | Search for                          |
-|---------------------|-------------------------------------|
-| Profile photo       | Replace `public/assets/images/profile.jpg` |
-| LinkedIn URL        | `linkedin.com/in/SahilBodke`        |
-| GitHub URL          | `github.com/SB110604`               |
-| Email               | `sahilbodke51@gmail.com`            |
-| Projects section    | `id="projects"` in index.html       |
-| About / bio         | `id="about"` in index.html          |
-| Colour scheme       | CSS variables at top of `public/css/styles.css` |
+| What to update   | Search for in index.html               |
+|------------------|----------------------------------------|
+| Profile photo    | Replace `public/assets/images/profile.jpg` |
+| Resume           | Replace `public/assets/resume.pdf`    |
+| Bio / About text | `id="about"` section                  |
+| Projects         | `id="projects"` section               |
+| LinkedIn URL     | `linkedin.com/in/SahilBodke`          |
+| GitHub URL       | `github.com/SB110604`                 |
+| Email            | `sahilbodke51@gmail.com`              |
+| Colour scheme    | CSS variables at top of `public/css/styles.css` |
+
+---
+
+## Quick Reference – Useful URLs
+
+| Resource | URL |
+|----------|-----|
+| Your live site | https://www.sahilbodke.xyz |
+| Firebase Console | https://console.firebase.google.com/ |
+| GitHub Actions | https://github.com/SB110604/SB110604/actions |
+| GitHub Student Pack | https://education.github.com/pack |
+| Namecheap login | https://www.namecheap.com |
+| DNS checker | https://dnschecker.org |
 
 ---
 
@@ -178,20 +188,22 @@ All content is in `public/index.html`. Key placeholders:
 
 | Problem | Fix |
 |---------|-----|
-| `firebase: command not found` | Run `npm install -g firebase-tools` |
+| `firebase: command not found` | Run `npm install -g firebase-tools` in PowerShell |
 | `Error: Permission denied` | Run `firebase login` again |
 | `Project not found` | Check `.firebaserc` — project ID must match Firebase Console |
+| TXT verify fails | Wait 5–10 min for DNS to propagate, then click Verify again |
 | DNS not propagating | Use [dnschecker.org](https://dnschecker.org) to check globally |
 | SSL certificate pending | Wait up to 24 h after DNS fully propagates |
-| GitHub Actions failing | Check Actions tab logs; confirm `FIREBASE_SERVICE_ACCOUNT` secret is set |
+| GitHub Actions failing | Check Actions tab; confirm `FIREBASE_SERVICE_ACCOUNT` secret is set |
+| Namecheap "conflicting records" | Delete any default Namecheap parking A/CNAME records first |
 
 ---
 
-## Useful Links
+## Reference Docs
 
 - [Firebase Hosting docs](https://firebase.google.com/docs/hosting)
 - [Firebase CLI reference](https://firebase.google.com/docs/cli)
-- [Custom domain setup](https://firebase.google.com/docs/hosting/custom-domain)
+- [Firebase custom domain setup](https://firebase.google.com/docs/hosting/custom-domain)
 - [GitHub Actions for Firebase](https://github.com/FirebaseExtended/action-hosting-deploy)
-- [Free domain options (Freenom)](https://www.freenom.com)
-- [Buy a domain (Namecheap)](https://www.namecheap.com)
+- [GitHub Student Developer Pack](https://education.github.com/pack)
+- [Namecheap Advanced DNS help](https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-can-i-set-up-an-a-address-record-for-my-domain/)
