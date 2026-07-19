@@ -1,17 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
 import "@/app/globals.css";
 import "@/styles/animations.css";
-
-const bodyFont = Inter({
-  subsets: ["latin"],
-  variable: "--font-body",
-});
-
-const headingFont = Cormorant_Garamond({
-  subsets: ["latin"],
-  variable: "--font-heading",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://swaminifoods.com"),
@@ -48,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${bodyFont.variable} ${headingFont.variable} h-full scroll-smooth`}>
+    <html lang="en" className="h-full scroll-smooth">
       <body className="min-h-full bg-[var(--color-background)] text-[var(--color-text)] antialiased">{children}</body>
     </html>
   );

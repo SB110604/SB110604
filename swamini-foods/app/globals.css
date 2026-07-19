@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --font-body: "Inter", system-ui, sans-serif;
-  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Times New Roman", Georgia, serif;
 
   --color-background: #0d0a08;
   --color-surface: #181210;
