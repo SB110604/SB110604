@@ -27,7 +27,7 @@ Google Play. Seeking **Agentic AI · GenAI / LLM · AI Automation Engineer** rol
 | Project | What it is | Stack |
 |---|---|---|
 | **[Best Food Services — Multi‑App Delivery Platform](https://github.com/SB110604/best-food-services-platform)** 🟢 live | 3 Android apps on Google Play (Customer / Vendor / Delivery Partner) + [bestfoodservices.in](https://bestfoodservices.in) on one Python REST API with JWT + role‑based access. | Python REST API · JWT/RBAC · relational DB · Android |
-| **[Industrial Safety Detection (YOLOv10)](https://github.com/SB110604/industrial-safety-detection-yolov10)** | Real‑time PPE‑compliance monitoring from a camera feed, with annotated evidence capture and SMS alerts. Software half of my final‑year IoT + computer‑vision capstone. | YOLOv10 · Flask · Node/Express · React · MongoDB |
+| **[Smart Industrial Safety Wearable (AI + IoT)](https://github.com/SB110604/industrial-safety-detection-yolov10)** 📄 published | Final‑year B.E. capstone: a wearable IoT node + AI that reads worker vitals/environment, detects PPE non‑compliance from camera feeds, and escalates emergencies via a role‑based dashboard. **Published in IJSART, Nov 2025.** | ESP32 · Deep learning (vision) · Flask · Node/Express · React · MongoDB |
 | **[Weather Forecasting Platform](https://github.com/SB110604/weather-forecasting-platform)** | Dual‑interface (Flask web + Tkinter desktop) app over OpenWeatherMap / WeatherAPI; a TTL cache cut average response time ~30%. | Python · Flask · Tkinter · Matplotlib |
 
 ### 🛡️ Security
@@ -62,6 +62,12 @@ reduction in critical vulnerabilities.
 **B.E., Computer Engineering** — Savitribai Phule Pune University (Jaihind College of Engineering), Pune · 2022 – 2026
 CGPA **8.34/10** · Final-Year SGPA **9.63/10** · First Class with Distinction
 Coursework: DSA, DBMS, Computer Networks, OS, OOP, Machine Learning, Artificial Intelligence, Cyber Security & Digital Forensics
+
+# 📄 Publications
+
+- **"Next‑Gen Industrial Safety: AI‑Driven Wearable Equipment Detection And Emergency Alert"** —
+  IJSART, Vol. 11, Issue 11 (Nov 2025), ISSN 2395‑1052. Also accepted at ICIISM‑2026.
+  [Details & certificate ↗](https://github.com/SB110604/industrial-safety-detection-yolov10)
 
 # 📜 Certifications
 
