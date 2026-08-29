@@ -14,12 +14,27 @@ Google Play. Seeking **Agentic AI · GenAI / LLM · AI Automation Engineer** rol
 
 # 🚀 Featured Projects
 
+### 🤖 Applied AI / ML & Web3
+
 | Project | What it is | Stack |
 |---|---|---|
-| **[Blockchain Academic Credential Verification](https://github.com/SB110604/blockchain-credential-verification)** | Tamper‑evident degrees anchored on a permissioned blockchain — issue, hold in a wallet, and verify in seconds even when the university is offline. | Solidity · Hardhat · Node · React 19 · W3C DID/VC |
-| **[Hybrid Multimodal Fake News Detection](https://github.com/SB110604/multimodal-fake-news-detection)** | 8‑layer pipeline fusing text, social‑propagation graph and image signals, with an explainable dashboard and feedback‑driven retraining. | PyTorch (BERT + GCN + CNN) · FastAPI · Streamlit |
 | **[RAG Framework for Technical Support](https://github.com/SB110604/rag-technical-support-chatbot)** | Retrieval‑augmented Q&A over your own docs: FAISS recall → cross‑encoder rerank → grounded answer with real citations → feedback loop. Voice in/out. | LangChain · FAISS · FastAPI · Streamlit · RAGAS |
+| **[Hybrid Multimodal Fake News Detection](https://github.com/SB110604/multimodal-fake-news-detection)** | 8‑layer pipeline fusing text, social‑propagation graph and image signals, with an explainable dashboard and feedback‑driven retraining. | PyTorch (BERT + GCN + CNN) · FastAPI · Streamlit |
+| **[Blockchain Academic Credential Verification](https://github.com/SB110604/blockchain-credential-verification)** | Tamper‑evident degrees anchored on a permissioned blockchain — issue, hold in a wallet, and verify in seconds even when the university is offline. | Solidity · Hardhat · Node · React 19 · W3C DID/VC |
+
+### 🌐 Full‑Stack & Systems
+
+| Project | What it is | Stack |
+|---|---|---|
+| **[Best Food Services — Multi‑App Delivery Platform](https://github.com/SB110604/best-food-services-platform)** 🟢 live | 3 Android apps on Google Play (Customer / Vendor / Delivery Partner) + [bestfoodservices.in](https://bestfoodservices.in) on one Python REST API with JWT + role‑based access. | Python REST API · JWT/RBAC · relational DB · Android |
 | **[Industrial Safety Detection (YOLOv10)](https://github.com/SB110604/industrial-safety-detection-yolov10)** | Real‑time PPE‑compliance monitoring from a camera feed, with annotated evidence capture and SMS alerts. Software half of my final‑year IoT + computer‑vision capstone. | YOLOv10 · Flask · Node/Express · React · MongoDB |
+| **[Weather Forecasting Platform](https://github.com/SB110604/weather-forecasting-platform)** | Dual‑interface (Flask web + Tkinter desktop) app over OpenWeatherMap / WeatherAPI; a TTL cache cut average response time ~30%. | Python · Flask · Tkinter · Matplotlib |
+
+### 🛡️ Security
+
+| Project | What it is | Stack |
+|---|---|---|
+| **[DDoS Attack Simulation & Mitigation Lab](https://github.com/SB110604/ddos-simulation-and-mitigation-lab)** | Isolated‑lab study of volumetric load and a comparative evaluation of rate limiting, IP blacklisting and traffic scrubbing, written up as a technical report. | Python · Wireshark · network security |
 
 > Each repository above is a **project showcase** — architecture, design decisions and results.
 > The full source is private and available on request for academic review or hiring evaluation.
