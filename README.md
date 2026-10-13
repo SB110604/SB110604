@@ -1,6 +1,8 @@
 # 💫 Sahil Arun Bodke
 ### Agentic AI & GenAI Engineer · RAG / LLM Applications & Automation · Python Full-Stack Developer
 
+**Portfolio: [sb110604.github.io](https://sb110604.github.io)** (interactive 3D site with a full case study for every project below)
+
 📍 Pune, Maharashtra, India &nbsp;·&nbsp; 🎓 B.E. Computer Engineering, SPPU — First Class with Distinction (CGPA 8.34/10) &nbsp;·&nbsp; 🚀 Live product: **[bestfoodservices.in](https://bestfoodservices.in)**
 
 I build and ship **production Generative AI, agentic and automation systems in Python** — RAG pipelines with
@@ -10,7 +12,7 @@ vector search, FastAPI microservices, Docker and CI/CD. Also shipped a live 3-ap
 Google Play. Seeking **Agentic AI · GenAI / LLM · AI Automation Engineer** roles.
 
 ## 🌐 Socials
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/sahil-bodke-engineer) [![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:sahilbodke51@gmail.com) [![Portfolio](https://img.shields.io/badge/Live%20Product-bestfoodservices.in-2ea44f)](https://bestfoodservices.in) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/bodkesahil_11)
+[![Portfolio](https://img.shields.io/badge/Portfolio-sb110604.github.io-00E6A0?logo=githubpages&logoColor=white)](https://sb110604.github.io) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/sahil-bodke-engineer) [![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:sahilbodke51@gmail.com) [![Live product](https://img.shields.io/badge/Live%20Product-bestfoodservices.in-2ea44f)](https://bestfoodservices.in) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/bodkesahil_11)
 
 # 🚀 Featured Projects
 
