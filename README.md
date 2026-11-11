@@ -1,94 +1,76 @@
-# 💫 Sahil Arun Bodke
-### Agentic AI & GenAI Engineer · RAG / LLM Applications & Automation · Python Full-Stack Developer
+<h1 align="center">Hi, I'm Sahil Bodke 👋</h1>
+<h3 align="center">Agentic AI · RAG / LLM Applications · Python & FastAPI Engineer</h3>
 
-**Portfolio: [sb110604.github.io](https://sb110604.github.io)** (interactive 3D site with a full case study for every project below)
+<p align="center">
+  <a href="https://sb110604.github.io"><img src="https://img.shields.io/badge/Portfolio-sb110604.github.io-00E6A0?logo=githubpages&logoColor=white" alt="Portfolio"></a>
+  <a href="https://linkedin.com/in/sahil-bodke-engineer"><img src="https://img.shields.io/badge/LinkedIn-sahil--bodke--engineer-0077B5?logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+  <a href="mailto:sahilbodke51@gmail.com"><img src="https://img.shields.io/badge/Email-sahilbodke51%40gmail.com-D14836?logo=gmail&logoColor=white" alt="Email"></a>
+  <a href="https://bestfoodservices.in"><img src="https://img.shields.io/badge/Live%20product-bestfoodservices.in-2ea44f" alt="Live product"></a>
+</p>
 
-📍 Pune, Maharashtra, India &nbsp;·&nbsp; 🎓 B.E. Computer Engineering, SPPU — First Class with Distinction (CGPA 8.34/10) &nbsp;·&nbsp; 🚀 Live product: **[bestfoodservices.in](https://bestfoodservices.in)**
+I build **AI systems that take real actions**: multi-agent pipelines that make decisions, explain why they made them,
+and send them through human approvals before anything is executed. I work mostly in Python, FastAPI and PostgreSQL,
+from the ML model through to a Dockerised, tested deployment.
 
-I build and ship **production Generative AI, agentic and automation systems in Python** — RAG pipelines with
-grounded citations and voice input, multimodal ML with explainability and human-in-the-loop retraining, and
-blockchain-based verifiable credentials. Comfortable end to end: LLM orchestration, tool / function calling,
-vector search, FastAPI microservices, Docker and CI/CD. Also shipped a live 3-app food-delivery platform on
-Google Play. Seeking **Agentic AI · GenAI / LLM · AI Automation Engineer** roles.
+- 🎓 B.E. Computer Engineering graduate, SPPU — First Class with Distinction (CGPA 8.34)
+- 📄 Published: *Smart Industrial Safety Wearable (AI + IoT)*, IJSART, Nov 2025
+- 🚀 Shipped: 3 Android apps on Google Play + web on one Python REST API ([bestfoodservices.in](https://bestfoodservices.in))
+- 🔭 Now building: open-source agentic AI and RAG tools for Python developers
+- 💼 Open to: **Agentic AI · GenAI / LLM · AI Automation Engineer** roles
 
-## 🌐 Socials
-[![Portfolio](https://img.shields.io/badge/Portfolio-sb110604.github.io-00E6A0?logo=githubpages&logoColor=white)](https://sb110604.github.io) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/sahil-bodke-engineer) [![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:sahilbodke51@gmail.com) [![Live product](https://img.shields.io/badge/Live%20Product-bestfoodservices.in-2ea44f)](https://bestfoodservices.in) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/bodkesahil_11)
+## ⭐ Flagship open-source project
 
-# 🚀 Featured Projects
+### [SmartStock RPA](https://github.com/SB110604/smartstock-rpa) — agentic AI + workflow automation for inventory & purchasing
 
-### 🤖 Applied AI / ML & Web3
+Eight AI agents run every morning to forecast demand, calculate reorder points and order quantities, rank
+suppliers and flag anomalies. Their decisions then go through an audited approval and purchase-order workflow,
+from request to supplier to goods receipt to three-way invoice match, so a person stays in control.
 
-| Project | What it is | Stack |
+| | |
+|---|---|
+| **Results** (90-day back-test) | forecast MAPE 40.3 % → 35.2 % · stock-outs −74 % · expired stock −92 % |
+| **Engineering** | 162 FastAPI endpoints · 49 PostgreSQL tables · 178 backend tests (90 % core coverage) · Playwright e2e |
+| **Stack** | FastAPI · SQLAlchemy · Celery · scikit-learn · React + TypeScript · Docker Compose |
+
+## 🧠 Projects
+
+| Project | What it does | Stack |
 |---|---|---|
-| **[RAG Framework for Technical Support](https://github.com/SB110604/rag-technical-support-chatbot)** | Retrieval‑augmented Q&A over your own docs: FAISS recall → cross‑encoder rerank → grounded answer with real citations → feedback loop. Voice in/out. | LangChain · FAISS · FastAPI · Streamlit · RAGAS |
-| **[Hybrid Multimodal Fake News Detection](https://github.com/SB110604/multimodal-fake-news-detection)** | 8‑layer pipeline fusing text, social‑propagation graph and image signals, with an explainable dashboard and feedback‑driven retraining. | PyTorch (BERT + GCN + CNN) · FastAPI · Streamlit |
-| **[Blockchain Academic Credential Verification](https://github.com/SB110604/blockchain-credential-verification)** | Tamper‑evident degrees anchored on a permissioned blockchain — issue, hold in a wallet, and verify in seconds even when the university is offline. | Solidity · Hardhat · Node · React 19 · W3C DID/VC |
+| **[RAG Framework for Technical Support](https://github.com/SB110604/rag-technical-support-chatbot)** | Q&A over your own docs: FAISS retrieval → cross-encoder rerank → grounded answers with citations; voice in/out | LangChain · FAISS · FastAPI · RAGAS |
+| **[Multimodal Fake News Detection](https://github.com/SB110604/multimodal-fake-news-detection)** | Fuses text, propagation-graph and image signals with an explainable dashboard and feedback retraining | PyTorch (BERT + GCN + CNN) · FastAPI |
+| **[Industrial Safety Wearable](https://github.com/SB110604/industrial-safety-detection-yolov10)** 📄 | Wearable IoT node + YOLOv10 PPE detection with emergency escalation | ESP32 · YOLOv10 · Flask · React · MongoDB |
+| **[Blockchain Credential Verification](https://github.com/SB110604/blockchain-credential-verification)** | Tamper-evident degrees with W3C DIDs/VCs, verifiable offline | Solidity · Hardhat · React |
+| **[Best Food Services Platform](https://github.com/SB110604/best-food-services-platform)** 🟢 live | 3 Play Store apps + web on one Python REST API with JWT / RBAC | Python · REST · Android |
 
-### 🌐 Full‑Stack & Systems
+## 🛠️ Tech stack
 
-| Project | What it is | Stack |
-|---|---|---|
-| **[Best Food Services — Multi‑App Delivery Platform](https://github.com/SB110604/best-food-services-platform)** 🟢 live | 3 Android apps on Google Play (Customer / Vendor / Delivery Partner) + [bestfoodservices.in](https://bestfoodservices.in) on one Python REST API with JWT + role‑based access. | Python REST API · JWT/RBAC · relational DB · Android |
-| **[Smart Industrial Safety Wearable (AI + IoT)](https://github.com/SB110604/industrial-safety-detection-yolov10)** 📄 published | Final‑year B.E. capstone: a wearable IoT node + AI that reads worker vitals/environment, detects PPE non‑compliance from camera feeds, and escalates emergencies via a role‑based dashboard. **Published in IJSART, Nov 2025.** | ESP32 · Deep learning (vision) · Flask · Node/Express · React · MongoDB |
-| **[Weather Forecasting Platform](https://github.com/SB110604/weather-forecasting-platform)** | Dual‑interface (Flask web + Tkinter desktop) app over OpenWeatherMap / WeatherAPI; a TTL cache cut average response time ~30%. | Python · Flask · Tkinter · Matplotlib |
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?logo=langchain&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=white)
+![Celery](https://img.shields.io/badge/Celery-37814A?logo=celery&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)
 
-### 🛡️ Security
+**AI / LLM:** agent orchestration · tool / function calling · RAG (hybrid search, reranking, citations) · LLM evaluation (RAGAS) ·
+forecasting · anomaly detection · computer vision (YOLO)
 
-| Project | What it is | Stack |
-|---|---|---|
-| **[DDoS Attack Simulation & Mitigation Lab](https://github.com/SB110604/ddos-simulation-and-mitigation-lab)** | Isolated‑lab study of volumetric load and a comparative evaluation of rate limiting, IP blacklisting and traffic scrubbing, written up as a technical report. | Python · Wireshark · network security |
+## 💼 Experience
 
-> Each repository above is a **project showcase** — architecture, design decisions and results.
-> The full source is private and available on request for academic review or hiring evaluation.
+- **Full-Stack & AI Developer — Best Food Services** (freelance) · Jun 2026 – present
+- **Engineering Trainee, Python Full-Stack — ProAzure Software Solutions** · Dec 2024 – Feb 2025
+- **Cybersecurity Intern, VAPT & SecOps — Redynox** · 2024
 
-# 💼 Experience
+## 📊 GitHub activity
 
-**Full-Stack & AI Developer — Best Food Services** *(Freelance / Contract)* · Jun 2026 – Present
-Shipped an end-to-end food-delivery suite — three live Android apps on Google Play (Customer, Vendor, Delivery
-Partner) on a single Python REST API backend with JWT auth and role-based access across three user types.
-Owned the relational schema, vendor/admin dashboards, recurring-ops automation, and the full Play Store
-release cycle (policy review, staged rollouts, crash monitoring).
+<p>
+  <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SB110604&layout=compact&hide_border=true&langs_count=6" alt="Top languages">
+</p>
 
-**Engineering Trainee — Python Full-Stack Development · ProAzure Software Solutions** · Dec 2024 – Feb 2025
-Built a dual-interface weather platform (Flask web app + Tkinter desktop) over the OpenWeatherMap / WeatherAPI
-REST APIs with Matplotlib visualisations; added an API response caching layer that cut average response time
-by ~30%, sustaining 99% uptime through QA in a PEP 8-compliant, peer-reviewed codebase.
-
-**Cybersecurity Intern — VAPT & Security Operations · Redynox** · 2024
-Ran vulnerability assessments (Nessus, OpenVAS) and penetration tests (Metasploit, Burp Suite, Nmap) with
-severity-based remediation guidance, plus Splunk SIEM triage for incident response — contributing to a 40%+
-reduction in critical vulnerabilities.
-
-# 🎓 Education
-
-**B.E., Computer Engineering** — Savitribai Phule Pune University (Jaihind College of Engineering), Pune · 2022 – 2026
-CGPA **8.34/10** · Final-Year SGPA **9.63/10** · First Class with Distinction
-Coursework: DSA, DBMS, Computer Networks, OS, OOP, Machine Learning, Artificial Intelligence, Cyber Security & Digital Forensics
-
-# 📄 Publications
-
-- **"Next‑Gen Industrial Safety: AI‑Driven Wearable Equipment Detection And Emergency Alert"** —
-  IJSART, Vol. 11, Issue 11 (Nov 2025), ISSN 2395‑1052. Also accepted at ICIISM‑2026.
-  [Details & certificate ↗](https://github.com/SB110604/industrial-safety-detection-yolov10)
-
-# 📜 Certifications
-
-- **Cisco Networking Academy** — CyberOps Associate · Cybersecurity Essentials · Introduction to Cybersecurity
-- **Deloitte Australia** — Data Analytics Job Simulation (Forage, 2025)
-- Python for Everybody · Ethical Hacking Awareness · IDE Bootcamp
-
-# 💻 Tech Stack:
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![Solidity](https://img.shields.io/badge/Solidity-%23363636.svg?style=for-the-badge&logo=solidity&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-%2300758F.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Bash](https://img.shields.io/badge/bash-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white) ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white) ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white) ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) ![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-FFD21E.svg?style=for-the-badge) ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white) ![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![PostgreSQL](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white) ![FAISS](https://img.shields.io/badge/FAISS-009999?style=for-the-badge) ![ChromaDB](https://img.shields.io/badge/ChromaDB-FFB000?style=for-the-badge)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
-![Ethereum](https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=ethereum&logoColor=white) ![Hardhat](https://img.shields.io/badge/Hardhat-FFF100?style=for-the-badge) ![MetaMask](https://img.shields.io/badge/MetaMask-F6851B?style=for-the-badge&logo=metamask&logoColor=white) ![Kali Linux](https://img.shields.io/badge/Kali%20Linux-557C94?style=for-the-badge&logo=kali-linux&logoColor=white) ![Splunk](https://img.shields.io/badge/Splunk-000000?style=for-the-badge&logo=splunk&logoColor=white) ![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white)
-
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=SB110604&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
-![](https://nirzak-streak-stats.vercel.app/?user=SB110604&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=SB110604&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
-
----
-[![](https://visitcount.itsvg.in/api?id=SB110604&icon=0&color=0)](https://visitcount.itsvg.in)
+<sub>Some showcase repositories contain architecture, results and screenshots only. Their source is private and
+available on request for hiring or academic review.</sub>
