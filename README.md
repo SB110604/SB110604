@@ -32,6 +32,14 @@ from request to supplier to goods receipt to three-way invoice match, so a perso
 | **Engineering** | 162 FastAPI endpoints · 49 PostgreSQL tables · 178 backend tests (90 % core coverage) · Playwright e2e |
 | **Stack** | FastAPI · SQLAlchemy · Celery · scikit-learn · React + TypeScript · Docker Compose |
 
+## 🧰 Open-source AI toolkits
+
+| Repository | What it does | Highlights |
+|---|---|---|
+| **[agentgate](https://github.com/SB110604/agentgate)** | Multi-agent orchestration with **human approval gates** | Rule or LLM planner · typed tool calling · parallel steps · retries/timeouts · SQLite memory · traces & metrics · FastAPI · 23 tests |
+| **[ragforge](https://github.com/SB110604/ragforge)** | **Hybrid-search RAG** for PDFs and docs with cited answers | Semantic chunking · BM25 + vectors (RRF) · reranking · query rewriting · evaluation pipeline · works offline · 17 tests |
+| **[repolens](https://github.com/SB110604/repolens)** | **AI software engineering assistant** for Python repos | Repo analysis · 18 bug/security rules · verified test generation · docs generation · PR review & risk scoring · 47 tests |
+
 ## 🧠 Projects
 
 | Project | What it does | Stack |
