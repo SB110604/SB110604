@@ -40,6 +40,15 @@ from request to supplier to goods receipt to three-way invoice match, so a perso
 | **[ragforge](https://github.com/SB110604/ragforge)** | **Hybrid-search RAG** for PDFs and docs with cited answers | Semantic chunking · BM25 + vectors (RRF) · reranking · query rewriting · evaluation pipeline · works offline · 17 tests |
 | **[repolens](https://github.com/SB110604/repolens)** | **AI software engineering assistant** for Python repos | Repo analysis · 18 bug/security rules · verified test generation · docs generation · PR review & risk scoring · 47 tests |
 
+[![agentgate CI](https://github.com/SB110604/agentgate/actions/workflows/ci.yml/badge.svg)](https://github.com/SB110604/agentgate/actions)
+[![agentgate release](https://img.shields.io/github/v/release/SB110604/agentgate?label=agentgate)](https://github.com/SB110604/agentgate/releases)
+[![ragforge CI](https://github.com/SB110604/ragforge/actions/workflows/ci.yml/badge.svg)](https://github.com/SB110604/ragforge/actions)
+[![ragforge release](https://img.shields.io/github/v/release/SB110604/ragforge?label=ragforge)](https://github.com/SB110604/ragforge/releases)
+[![repolens CI](https://github.com/SB110604/repolens/actions/workflows/ci.yml/badge.svg)](https://github.com/SB110604/repolens/actions)
+[![repolens release](https://img.shields.io/github/v/release/SB110604/repolens?label=repolens)](https://github.com/SB110604/repolens/releases)
+
+Tested on Python 3.10–3.13 in CI · MIT licensed · [open roadmap issues](https://github.com/search?q=user%3ASB110604+is%3Aissue+is%3Aopen+label%3Aenhancement&type=issues) welcome contributions
+
 ## 🧠 Projects
 
 | Project | What it does | Stack |
