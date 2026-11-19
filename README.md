@@ -2,7 +2,8 @@
 <h3 align="center">Agentic AI · RAG / LLM Applications · Python & FastAPI Engineer</h3>
 
 <p align="center">
-  <a href="https://sb110604.github.io"><img src="https://img.shields.io/badge/Portfolio-sb110604.github.io-00E6A0?logo=githubpages&logoColor=white" alt="Portfolio"></a>
+  <a href="https://sahil-bodke.vercel.app"><img src="https://img.shields.io/badge/Portfolio-sahil--bodke.vercel.app-7546FF?logo=vercel&logoColor=white" alt="Portfolio"></a>
+  <a href="https://sb110604.github.io"><img src="https://img.shields.io/badge/Mirror-sb110604.github.io-00E5FF?logo=githubpages&logoColor=white" alt="Portfolio mirror on GitHub Pages"></a>
   <a href="https://linkedin.com/in/sahil-bodke-engineer"><img src="https://img.shields.io/badge/LinkedIn-sahil--bodke--engineer-0077B5?logo=linkedin&logoColor=white" alt="LinkedIn"></a>
   <a href="mailto:sahilbodke51@gmail.com"><img src="https://img.shields.io/badge/Email-sahilbodke51%40gmail.com-D14836?logo=gmail&logoColor=white" alt="Email"></a>
   <a href="https://bestfoodservices.in"><img src="https://img.shields.io/badge/Live%20product-bestfoodservices.in-2ea44f" alt="Live product"></a>
